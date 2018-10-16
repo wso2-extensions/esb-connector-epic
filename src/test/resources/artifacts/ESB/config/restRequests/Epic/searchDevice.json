@@ -1,0 +1,5 @@
+{
+  "base": "%s(base)",
+  "deviceType": "%s(deviceType)",
+  "patient": "%s(patientId)"
+}

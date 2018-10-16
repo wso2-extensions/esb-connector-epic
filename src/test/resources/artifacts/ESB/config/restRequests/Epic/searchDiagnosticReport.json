@@ -1,0 +1,7 @@
+{
+  "base": "%s(base)",
+  "type": "%s(diagnosticReportType)",
+  "patient": "%s(patientId)",
+  "startDate": "%s(reportStartDate)",
+  "endDate" : "%s(reportEndDate)"
+}

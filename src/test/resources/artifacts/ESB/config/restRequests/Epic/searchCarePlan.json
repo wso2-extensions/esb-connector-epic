@@ -1,0 +1,5 @@
+{
+  "base": "%s(base)",
+  "type": "%s(carePlanType)",
+  "patient": "%s(patientId)"
+}

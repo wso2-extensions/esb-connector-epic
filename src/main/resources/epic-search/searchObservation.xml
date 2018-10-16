@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~  Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~
+~  WSO2 Inc. licenses this file to you under the Apache License,
+~  Version 2.0 (the "License"); you may not use this file except
+~  in compliance with the License.
+~  You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~  Unless required by applicable law or agreed to in writing,
+~  software distributed under the License is distributed on an
+~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~  KIND, either express or implied.  See the License for the
+~  specific language governing permissions and limitations
+~  under the License.
+-->
+<template name="searchObservation" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="id" description="The logical Id of the resource"/>
+    <parameter name="patient" description="Search observation resources for a specified patient ID."/>
+    <parameter name="code" description="Search for Observation resources for a valid LOINC code"/>
+    <parameter name="category"
+               description="Search for Observation resources for a valid category (vital-signs, social-history, laboratory)."/>
+    <parameter name="startDate"
+               description="search for a given set of result- or vital sign-based Observations by specifying the start date for when the observation was resulted or recorded"/>
+    <parameter name="endDate"
+               description="search for a given set of result- or vital sign-based Observations by specifying the end date for when the observation was resulted or recorded"/>
+    <parameter name="startIssued"
+               description="search for a smoking history Observations by specifying the start date when the observation was recorded."/>
+    <parameter name="endIssued"
+               description="search for a smoking history Observations by specifying the end date when the observation was recorded."/>
+
+    <sequence>
+        <property name="uri.var.id" expression="$func:id"/>
+        <property name="uri.var.patient" expression="$func:patient"/>
+        <property name="uri.var.code" expression="$func:code"/>
+        <property name="uri.var.category" expression="$func:category"/>
+        <property name="uri.var.startDate" expression="$func:startDate"/>
+        <property name="uri.var.endDate" expression="$func:endDate"/>
+        <property name="uri.var.startIssued" expression="$func:startIssued"/>
+        <property name="uri.var.endIssued" expression="$func:endIssued"/>
+        <script language="js">
+            <![CDATA[
+            var id = mc.getProperty('uri.var.id');
+            var patient = mc.getProperty('uri.var.patient');
+            var code = mc.getProperty('uri.var.code');
+            var category = mc.getProperty('uri.var.category');
+            var startDate = mc.getProperty('uri.var.startDate');
+            var endDate = mc.getProperty('uri.var.endDate');
+            var startIssued = mc.getProperty('uri.var.startIssued');
+            var endIssued = mc.getProperty('uri.var.endIssued');
+            urlQuery = '';
+            if  (id != null && id != "") {
+                urlQuery += '_id=' + id + '&';
+            }
+            if  (patient != null && patient != "") {
+                urlQuery += 'patient=' + patient + '&';
+            }
+            if  (code != null && code != "") {
+                urlQuery += 'code=' + code + '&';
+            }
+            if  (category != null && category != "") {
+                urlQuery += 'category=' + category + '&';
+            }
+            if  (startDate != null && startDate != "") {
+                urlQuery += 'date=gt' + startDate + '&';
+            }
+            if  (endDate != null && endDate != "") {
+                urlQuery += 'date=lt' + endDate + '&';
+            }
+            if  (startIssued != null && startIssued != "") {
+                urlQuery += 'issued=gt' + startIssued + '&';
+            }
+            if  (endIssued != null && endIssued != "") {
+                urlQuery += 'issued=lt' + endIssued + '&';
+            }
+            if  (urlQuery != null && urlQuery  != "") {
+                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+            }
+            mc.setProperty('uri.var.urlQuery',urlQuery);
+            ]]>
+        </script>
+        <filter source="boolean($ctx:uri.var.id) or boolean($ctx:uri.var.patient)"
+                regex="false">
+            <then>
+                <log category="ERROR" description="FAULT" level="custom">
+                    <property name="ERROR" value="No supported Mandatory search parameters provided"/>
+                </log>
+                <payloadFactory media-type="json">
+                    <format>{ "Error":{ "errorType":"InvalidParameter","details":"at least one of the id and patient parameters must be provided " } }
+                    </format>
+                    <args/>
+                </payloadFactory>
+                <header name="To" scope="default" action="remove"/>
+                <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+                <property name="HTTP_SC" value="400" scope="axis2" type="STRING"/>
+                <send/>
+            </then>
+            <else>
+                <header name="Accept" scope="transport" value="application/json+fhir"/>
+                <call>
+                    <log category="INFO" level="full" separator=","/>
+                    <endpoint>
+                        <http method="Get"
+                              uri-template="{uri.var.base}/Observation{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

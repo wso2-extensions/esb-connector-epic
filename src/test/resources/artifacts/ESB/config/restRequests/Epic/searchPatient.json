@@ -1,0 +1,6 @@
+{
+  "base": "%s(base)",
+  "type": "%s(type)",
+  "given": "%s(patientGivenName)",
+  "birthdate": "%s(patientBirthdate)"
+}

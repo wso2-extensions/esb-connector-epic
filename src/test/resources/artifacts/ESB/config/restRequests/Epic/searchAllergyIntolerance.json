@@ -1,0 +1,6 @@
+{
+  "base": "%s(base)",
+  "type": "%s(allergyType)",
+  "patient": "%s(patient)",
+  "onset": "%s(onset)"
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~  Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~
+~  WSO2 Inc. licenses this file to you under the Apache License,
+~  Version 2.0 (the "License"); you may not use this file except
+~  in compliance with the License.
+~  You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~  Unless required by applicable law or agreed to in writing,
+~  software distributed under the License is distributed on an
+~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~  KIND, either express or implied.  See the License for the
+~  specific language governing permissions and limitations
+~  under the License.
+-->
+<template name="searchPatient" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="id" description="The logical resource id associated with the resource"/>
+    <parameter name="identifier"
+               description="Search for Patient resources using a business identifier, such as an MRN"/>
+    <parameter name="family" description="Search for Patient resources using a last name or family name."/>
+    <parameter name="given" description="Search for Patient resources using a first name or given name"/>
+    <parameter name="birthdate"
+               description="Search for Patient resources using a date of birth in XML format (YYYY-MM-DD)"/>
+    <parameter name="gender"
+               description="Search for Patient resources using  the following gender codes: female, male, other, or unknown"/>
+    <parameter name="address" description="Search for Patient resources using an address string"/>
+    <parameter name="telecom" description="Search for Patient resources using a patient’s home or cell phone number."/>
+
+    <sequence>
+        <property name="uri.var.id" expression="$func:id"/>
+        <property name="uri.var.identifier" expression="$func:identifier"/>
+        <property name="uri.var.family" expression="$func:family"/>
+        <property name="uri.var.given" expression="$func:given"/>
+        <property name="uri.var.birthdate" expression="$func:birthdate"/>
+        <property name="uri.var.gender" expression="$func:gender"/>
+        <property name="uri.var.address" expression="$func:address"/>
+        <property name="uri.var.telecom" expression="$func:telecom"/>
+        <script language="js">
+            <![CDATA[
+            var id = mc.getProperty('uri.var.id');
+            var identifier = mc.getProperty('uri.var.identifier');
+            var family = mc.getProperty('uri.var.family');
+            var given = mc.getProperty('uri.var.given');
+            var birthdate = mc.getProperty('uri.var.birthdate');
+            var gender = mc.getProperty('uri.var.gender');
+            var address = mc.getProperty('uri.var.address');
+            var telecom = mc.getProperty('uri.var.telecom');
+            urlQuery = '';
+            if  (id != null && id != "") {
+                urlQuery += '_id=' + id + '&';
+            }
+            if  (identifier != null && identifier != "") {
+                urlQuery += 'identifier=' + identifier + '&';
+            }
+            if  (family != null && family != "") {
+                urlQuery += 'family=' + family + '&';
+            }
+            if  (given != null && given != "") {
+                urlQuery += 'given=' + given + '&';
+            }
+            if  (birthdate != null && birthdate != "") {
+                urlQuery += 'birthdate=' + birthdate + '&';
+            }
+            if  (gender != null && gender != "") {
+                urlQuery += 'gender=' + gender + '&';
+            }
+            if  (address != null && address != "") {
+                urlQuery += 'address=' + address + '&';
+            }
+            if  (telecom != null && telecom != "") {
+                urlQuery += 'telecom=' + telecom + '&';
+             }
+            if  (urlQuery != null && urlQuery  != "") {
+                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+            }
+            mc.setProperty('uri.var.urlQuery',urlQuery);
+            ]]>
+        </script>
+        <header name="Accept" scope="transport" value="application/json+fhir"/>
+        <call>
+            <log category="INFO" level="full" separator=","/>
+            <endpoint>
+                <http method="Get"
+                      uri-template="{uri.var.base}/Patient{+uri.var.urlQuery}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~  Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~
+~  WSO2 Inc. licenses this file to you under the Apache License,
+~  Version 2.0 (the "License"); you may not use this file except
+~  in compliance with the License.
+~  You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~  Unless required by applicable law or agreed to in writing,
+~  software distributed under the License is distributed on an
+~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~  KIND, either express or implied.  See the License for the
+~  specific language governing permissions and limitations
+~  under the License.
+-->
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="Epic"
+       statistics="disable" trace="disable" transports="https,http" startOnLoad="true">
+    <target>
+        <inSequence>
+            <property name="base" expression="json-eval($.base)"/>
+            <property name="type" expression="json-eval($.type)"/>
+            <property name="id" expression="json-eval($.id)"/>
+            <property name="patient" expression="json-eval($.patient)"/>
+            <property name="onset" expression="json-eval($.onset)"/>
+            <property name="category" expression="json-eval($.category)"/>
+            <property name="deviceType" expression="json-eval($.deviceType)"/>
+            <property name="startDate" expression="json-eval($.startDate)"/>
+            <property name="endDate" expression="json-eval($.endDate)"/>
+            <property name="status" expression="json-eval($.status)"/>
+            <property name="code" expression="json-eval($.code)"/>
+            <property name="given" expression="json-eval($.given)"/>
+            <property name="birthdate" expression="json-eval($.birthdate)"/>
+            <Epic.init>
+                <base>{$ctx:base}</base>
+            </Epic.init>
+            <switch source="get-property('transport', 'Action')">
+            <case regex="urn:getConformance">
+                <Epic.getConformance/>
+            </case>
+            <case regex="urn:readById">
+                <Epic.readById>
+                    <type>{$ctx:type}</type>
+                    <id>{$ctx:id}</id>
+                </Epic.readById>
+            </case>
+            <case regex="urn:searchAllergyIntolerance">
+                <Epic.searchAllergyIntolerance>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <onset>{$ctx:onset}</onset>
+                </Epic.searchAllergyIntolerance>
+            </case>
+            <case regex="urn:searchCarePlan">
+                <Epic.searchCarePlan>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                </Epic.searchCarePlan>
+            </case>
+            <case regex="urn:searchCondition">
+                <Epic.searchCondition>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <category>{$ctx:category}</category>
+                </Epic.searchCondition>
+            </case>
+            <case regex="urn:searchDevice">
+                <Epic.searchDevice>
+                    <deviceType>{$ctx:deviceType}</deviceType>
+                    <patient>{$ctx:patient}</patient>
+                </Epic.searchDevice>
+            </case>
+            <case regex="urn:searchDiagnosticReport">
+                <Epic.searchDiagnosticReport>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <startDate>{$ctx:startDate}</startDate>
+                    <endDate>{$ctx:endDate}</endDate>
+                </Epic.searchDiagnosticReport>
+            </case>
+            <case regex="urn:searchDocumentReference">
+                <Epic.searchDocumentReference>
+                    <type>{$ctx:type}</type>
+                    <id>{$ctx:id}</id>
+                </Epic.searchDocumentReference>
+            </case>
+            <case regex="urn:searchFamilyMemberHistory">
+                <Epic.searchFamilyMemberHistory>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                </Epic.searchFamilyMemberHistory>
+            </case>
+            <case regex="urn:searchGoal">
+                <Epic.searchGoal>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <startDate>{$ctx:startDate}</startDate>
+                    <endDate>{$ctx:endDate}</endDate>
+                </Epic.searchGoal>
+            </case>
+            <case regex="urn:searchImmunization">
+                <Epic.searchImmunization>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <startDate>{$ctx:startDate}</startDate>
+                </Epic.searchImmunization>
+            </case>
+            <case regex="urn:searchMedicationOrder">
+                <Epic.searchMedicationOrder>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <status>{$ctx:status}</status>
+                </Epic.searchMedicationOrder>
+            </case>
+            <case regex="urn:searchMedicationStatement">
+                <Epic.searchMedicationStatement>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <status>{$ctx:status}</status>
+                </Epic.searchMedicationStatement>
+            </case>
+            <case regex="urn:searchObservation">
+                <Epic.searchObservation>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                    <code>{$ctx:code}</code>
+                </Epic.searchObservation>
+            </case>
+            <case regex="urn:searchPatient">
+                <Epic.searchPatient>
+                    <type>{$ctx:type}</type>
+                    <given>{$ctx:given}</given>
+                    <birthdate>{$ctx:birthdate}</birthdate>
+                </Epic.searchPatient>
+            </case>
+            <case regex="urn:searchProcedure">
+                <Epic.searchProcedure>
+                    <type>{$ctx:type}</type>
+                    <patient>{$ctx:patient}</patient>
+                </Epic.searchProcedure>
+            </case>
+            </switch>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <parameter name="serviceType">proxy</parameter>
+    <description/>
+</proxy>

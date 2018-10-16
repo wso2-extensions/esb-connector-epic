@@ -1,0 +1,6 @@
+{
+  "base": "%s(base)",
+  "type": "%s(immunizationType)",
+  "patient": "%s(patientId)",
+  "startDate":"%s(startDate)"
+}

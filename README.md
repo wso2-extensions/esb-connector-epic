@@ -1,6 +1,6 @@
 # Epic ESB Connector
 
-The Epic [connector](https://docs.wso2.com/display/EI611/Working+with+Connectors) allows you to access the Epic FHIR APIs through the WSO2 EI. 
+The Epic [connector](https://docs.wso2.com/display/EI611/Working+with+Connectors) allows you to access the Epic FHIR APIs through WSO2 EI. 
 Epic connector currently supports the DSTU 2 Final (1.0.2) version of the FHIR standard.
 
 ### Build

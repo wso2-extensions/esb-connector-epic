@@ -40,47 +40,6 @@
         <property name="uri.var.endDate" expression="$func:endDate"/>
         <property name="uri.var.startIssued" expression="$func:startIssued"/>
         <property name="uri.var.endIssued" expression="$func:endIssued"/>
-        <script language="js">
-            <![CDATA[
-            var id = mc.getProperty('uri.var.id');
-            var patient = mc.getProperty('uri.var.patient');
-            var code = mc.getProperty('uri.var.code');
-            var category = mc.getProperty('uri.var.category');
-            var startDate = mc.getProperty('uri.var.startDate');
-            var endDate = mc.getProperty('uri.var.endDate');
-            var startIssued = mc.getProperty('uri.var.startIssued');
-            var endIssued = mc.getProperty('uri.var.endIssued');
-            urlQuery = '';
-            if  (id != null && id != "") {
-                urlQuery += '_id=' + id + '&';
-            }
-            if  (patient != null && patient != "") {
-                urlQuery += 'patient=' + patient + '&';
-            }
-            if  (code != null && code != "") {
-                urlQuery += 'code=' + code + '&';
-            }
-            if  (category != null && category != "") {
-                urlQuery += 'category=' + category + '&';
-            }
-            if  (startDate != null && startDate != "") {
-                urlQuery += 'date=gt' + startDate + '&';
-            }
-            if  (endDate != null && endDate != "") {
-                urlQuery += 'date=lt' + endDate + '&';
-            }
-            if  (startIssued != null && startIssued != "") {
-                urlQuery += 'issued=gt' + startIssued + '&';
-            }
-            if  (endIssued != null && endIssued != "") {
-                urlQuery += 'issued=lt' + endIssued + '&';
-            }
-            if  (urlQuery != null && urlQuery  != "") {
-                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
-            }
-            mc.setProperty('uri.var.urlQuery',urlQuery);
-            ]]>
-        </script>
         <filter source="boolean($ctx:uri.var.id) or boolean($ctx:uri.var.patient)"
                 regex="false">
             <then>
@@ -98,11 +57,51 @@
                 <send/>
             </then>
             <else>
+                <script language="js">
+                    <![CDATA[
+                    var id = mc.getProperty('uri.var.id');
+                    var patient = mc.getProperty('uri.var.patient');
+                    var code = mc.getProperty('uri.var.code');
+                    var category = mc.getProperty('uri.var.category');
+                    var startDate = mc.getProperty('uri.var.startDate');
+                    var endDate = mc.getProperty('uri.var.endDate');
+                    var startIssued = mc.getProperty('uri.var.startIssued');
+                    var endIssued = mc.getProperty('uri.var.endIssued');
+                    urlQuery = '';
+                    if  (id != null && id != "") {
+                        urlQuery += '_id=' + id + '&';
+                    }
+                    if  (patient != null && patient != "") {
+                        urlQuery += 'patient=' + patient + '&';
+                    }
+                    if  (code != null && code != "") {
+                        urlQuery += 'code=' + code + '&';
+                    }
+                    if  (category != null && category != "") {
+                        urlQuery += 'category=' + category + '&';
+                    }
+                    if  (startDate != null && startDate != "") {
+                        urlQuery += 'date=gt' + startDate + '&';
+                    }
+                    if  (endDate != null && endDate != "") {
+                        urlQuery += 'date=lt' + endDate + '&';
+                    }
+                    if  (startIssued != null && startIssued != "") {
+                        urlQuery += 'issued=gt' + startIssued + '&';
+                    }
+                    if  (endIssued != null && endIssued != "") {
+                        urlQuery += 'issued=lt' + endIssued + '&';
+                    }
+                    if  (urlQuery != null && urlQuery  != "") {
+                        urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+                    }
+                    mc.setProperty('uri.var.urlQuery',urlQuery);
+                    ]]>
+                </script>
                 <header name="Accept" scope="transport" value="application/json+fhir"/>
                 <call>
-                    <log category="INFO" level="full" separator=","/>
                     <endpoint>
-                        <http method="Get"
+                        <http method="GET"
                               uri-template="{uri.var.base}/Observation{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>

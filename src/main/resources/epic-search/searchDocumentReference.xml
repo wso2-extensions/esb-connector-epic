@@ -28,35 +28,6 @@
         <property name="uri.var.class" expression="$func:class"/>
         <property name="uri.var.startDate" expression="$func:startDate"/>
         <property name="uri.var.endDate" expression="$func:endDate"/>
-        <script language="js">
-            <![CDATA[
-            var id = mc.getProperty('uri.var.id');
-            var patient = mc.getProperty('uri.var.patient');
-            var startDate = mc.getProperty('uri.var.startDate');
-            var class = mc.getProperty('uri.var.class');
-            var endDate = mc.getProperty('uri.var.endDate');
-            urlQuery = '';
-            if  (id != null && id != "") {
-                urlQuery += '_id=' + id + '&';
-            }
-            if  (patient != null && patient != "") {
-                urlQuery += 'patient=' + patient + '&';
-            }
-            if  (class != null && class != "") {
-                urlQuery += 'class=' + class + '&';
-            }
-            if  (startDate != null && startDate != "") {
-                urlQuery += 'created=gt' + startDate + '&';
-            }
-            if  (endDate != null && endDate != "") {
-                urlQuery += 'created=lt' + endDate + '&';
-            }
-            if  (urlQuery != null && urlQuery  != "") {
-                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
-            }
-            mc.setProperty('uri.var.urlQuery',urlQuery);
-            ]]>
-        </script>
         <filter source="boolean($ctx:uri.var.id) or boolean($ctx:uri.var.patient)"
                 regex="false">
             <then>
@@ -75,11 +46,39 @@
                 <send/>
             </then>
             <else>
+                <script language="js">
+                    <![CDATA[
+                    var id = mc.getProperty('uri.var.id');
+                    var patient = mc.getProperty('uri.var.patient');
+                    var startDate = mc.getProperty('uri.var.startDate');
+                    var class = mc.getProperty('uri.var.class');
+                    var endDate = mc.getProperty('uri.var.endDate');
+                    urlQuery = '';
+                    if  (id != null && id != "") {
+                        urlQuery += '_id=' + id + '&';
+                    }
+                    if  (patient != null && patient != "") {
+                        urlQuery += 'patient=' + patient + '&';
+                    }
+                    if  (class != null && class != "") {
+                        urlQuery += 'class=' + class + '&';
+                    }
+                    if  (startDate != null && startDate != "") {
+                        urlQuery += 'created=gt' + startDate + '&';
+                    }
+                    if  (endDate != null && endDate != "") {
+                        urlQuery += 'created=lt' + endDate + '&';
+                    }
+                    if  (urlQuery != null && urlQuery  != "") {
+                        urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+                    }
+                    mc.setProperty('uri.var.urlQuery',urlQuery);
+                    ]]>
+                </script>
                 <header name="Accept" scope="transport" value="application/json+fhir"/>
                 <call>
-                    <log category="INFO" level="full" separator=","/>
                     <endpoint>
-                        <http method="Get"
+                        <http method="GET"
                               uri-template="{uri.var.base}/DocumentReference{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>

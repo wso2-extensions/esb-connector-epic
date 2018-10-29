@@ -23,7 +23,7 @@
         <header name="Accept" scope="transport" value="application/json+fhir"/>
         <call>
             <endpoint>
-                <http method="Post" uri-template="{uri.var.base}/{uri.var.type}"/>
+                <http method="POST" uri-template="{uri.var.base}/{uri.var.type}"/>
             </endpoint>
         </call>
     </sequence>

@@ -1,6 +1,6 @@
 {
   "base": "%s(base)",
-  "type": "%s(diagnosticReportType)",
+  "type": "DiagnosticReport",
   "patient": "%s(patientId)",
   "startDate": "%s(reportStartDate)",
   "endDate" : "%s(reportEndDate)"

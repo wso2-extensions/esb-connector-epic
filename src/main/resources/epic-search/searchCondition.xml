@@ -32,39 +32,6 @@
         <property name="uri.var.clinicalStatus" expression="$func:clinicalStatus"/>
         <property name="uri.var.startOnset" expression="$func:startOnset"/>
         <property name="uri.var.endOnset" expression="$func:endOnset"/>
-        <script language="js">
-            <![CDATA[
-            var id = mc.getProperty('uri.var.id');
-            var patient = mc.getProperty('uri.var.patient');
-            var category = mc.getProperty('uri.var.category');
-            var clinicalStatus = mc.getProperty('uri.var.clinicalStatus');
-            var startOnset = mc.getProperty('uri.var.startOnset');
-            var endOnset = mc.getProperty('uri.var.endOnset');
-            urlQuery = '';
-            if  (id != null && id != "") {
-                urlQuery += '_id=' + id + '&';
-            }
-            if  (patient != null && patient != "") {
-                urlQuery += 'patient=' + patient + '&';
-            }
-            if  (category != null && category != "") {
-                urlQuery += 'category=' + category + '&';
-            }
-            if  (clinicalStatus != null && clinicalStatus != "") {
-                urlQuery += 'clinicalStatus=' + clinicalStatus + '&';
-            }
-            if  (startOnset != null && startOnset != "") {
-                urlQuery += 'onset=gt' + startOnset + '&';
-            }
-            if  (endOnset != null && endOnset != "") {
-                urlQuery += 'onset=lt' + endOnset + '&';
-            }
-            if  (urlQuery != null && urlQuery  != "") {
-                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
-            }
-            mc.setProperty('uri.var.urlQuery',urlQuery);
-            ]]>
-        </script>
         <filter source="boolean($ctx:uri.var.id) or boolean($ctx:uri.var.patient)"
                 regex="false">
             <then>
@@ -83,11 +50,43 @@
                 <send/>
             </then>
             <else>
+                <script language="js">
+                    <![CDATA[
+                    var id = mc.getProperty('uri.var.id');
+                    var patient = mc.getProperty('uri.var.patient');
+                    var category = mc.getProperty('uri.var.category');
+                    var clinicalStatus = mc.getProperty('uri.var.clinicalStatus');
+                    var startOnset = mc.getProperty('uri.var.startOnset');
+                    var endOnset = mc.getProperty('uri.var.endOnset');
+                    urlQuery = '';
+                    if  (id != null && id != "") {
+                        urlQuery += '_id=' + id + '&';
+                    }
+                    if  (patient != null && patient != "") {
+                        urlQuery += 'patient=' + patient + '&';
+                    }
+                    if  (category != null && category != "") {
+                        urlQuery += 'category=' + category + '&';
+                    }
+                    if  (clinicalStatus != null && clinicalStatus != "") {
+                        urlQuery += 'clinicalStatus=' + clinicalStatus + '&';
+                    }
+                    if  (startOnset != null && startOnset != "") {
+                        urlQuery += 'onset=gt' + startOnset + '&';
+                    }
+                    if  (endOnset != null && endOnset != "") {
+                        urlQuery += 'onset=lt' + endOnset + '&';
+                    }
+                    if  (urlQuery != null && urlQuery  != "") {
+                        urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+                    }
+                    mc.setProperty('uri.var.urlQuery',urlQuery);
+                    ]]>
+                </script>
                 <header name="Accept" scope="transport" value="application/json+fhir"/>
                 <call>
-                    <log category="INFO" level="full" separator=","/>
                     <endpoint>
-                        <http method="Get"
+                        <http method="GET"
                               uri-template="{uri.var.base}/Condition{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>

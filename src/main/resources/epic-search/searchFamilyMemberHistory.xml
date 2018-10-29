@@ -20,19 +20,6 @@
     <parameter name="patient" description="Search for FamilyMemberHistory resources for a specified patient ID."/>
     <sequence>
         <property name="uri.var.patient" expression="$func:patient"/>
-        <script language="js">
-            <![CDATA[
-            var patient = mc.getProperty('uri.var.patient');
-            urlQuery = '';
-            if  (patient != null && patient != "") {
-                urlQuery += 'patient=' + patient + '&';
-            }
-            if  (urlQuery != null && urlQuery  != "") {
-                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
-            }
-            mc.setProperty('uri.var.urlQuery',urlQuery);
-            ]]>
-        </script>
         <filter source="boolean($ctx:uri.var.patient)"
                 regex="false">
             <then>
@@ -50,11 +37,17 @@
                 <send/>
             </then>
             <else>
+                <script language="js">
+                    <![CDATA[
+                    var patient = mc.getProperty('uri.var.patient');
+                    urlQuery = '?' + 'patient=' + patient;
+                    mc.setProperty('uri.var.urlQuery',urlQuery);
+                    ]]>
+                </script>
                 <header name="Accept" scope="transport" value="application/json+fhir"/>
                 <call>
-                    <log category="INFO" level="full" separator=","/>
                     <endpoint>
-                        <http method="Get"
+                        <http method="GET"
                               uri-template="{uri.var.base}/FamilyMemberHistory{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>

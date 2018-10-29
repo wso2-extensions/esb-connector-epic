@@ -40,7 +40,9 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void setEnvironment() throws Exception {
         String connectorName = System.getProperty("connector_name") + "-connector-" +
                 System.getProperty("connector_version") + ".zip";
+        addCertificatesToEIKeyStore("client-truststore.jks", "wso2carbon");
         init(connectorName);
+        getApiConfigProperties();
         eiRequestHeadersMap.put("Accept-Charset", "UTF-8");
         eiRequestHeadersMap.put("Accept", "application/json+fhir");
         eiRequestHeadersMap.put("Content-Type", "application/json+fhir");

@@ -114,7 +114,6 @@
         <p2Repositories>
             <repository name="localDefault">
                 <repository repo-id="online-repository">https://wso2.org/repo</repository>
-                <repository repo-id="file-repository">file:///home/krishantha/test</repository>
             </repository>
         </p2Repositories>
     </featureManagement>

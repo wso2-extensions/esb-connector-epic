@@ -1,6 +1,6 @@
 {
   "base": "%s(base)",
-  "type": "%s(observationType)",
+  "type": "Observation",
   "patient": "%s(patientId)",
   "code": "%s(code)"
 }

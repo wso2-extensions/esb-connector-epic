@@ -22,7 +22,7 @@
         <header name="Accept" scope="transport" value="application/json+fhir"/>
         <call>
             <endpoint>
-                <http method="Get" uri-template="{uri.var.base}/metadata"/>
+                <http method="GET" uri-template="{uri.var.base}/metadata"/>
             </endpoint>
         </call>
     </sequence>

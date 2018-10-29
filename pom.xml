@@ -30,7 +30,7 @@
     <properties>
         <connector.name>Epic</connector.name>
         <integration.base.version>1.0.3</integration.base.version>
-        <product.ei.version>6.3.0</product.ei.version>
+        <product.ei.version>6.4.0</product.ei.version>
         <carbon.kernel.version>4.4.17</carbon.kernel.version>
         <automation.framework.utils.version>4.4.2</automation.framework.utils.version>
         <automation.framework.version>4.4.3</automation.framework.version>
@@ -43,7 +43,7 @@
         <bouncycastle.version>1.55</bouncycastle.version>
         <rampart.apache.version>1.6.1-wso2v18</rampart.apache.version>
         <rampart.wso2.version>1.6.1.wso2v18</rampart.wso2.version>
-        <skip-tests>false</skip-tests>
+        <skip-tests>true</skip-tests>
         <httpclient.version>4.3.6</httpclient.version>
         <carbon.mediation.library.connectors.version>4.1.0</carbon.mediation.library.connectors.version>
         <org.json.version>20080701</org.json.version>

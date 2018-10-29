@@ -30,35 +30,6 @@
         <property name="uri.var.status" expression="$func:status"/>
         <property name="uri.var.startEffectiveDate" expression="$func:startEffectiveDate"/>
         <property name="uri.var.endEffectiveDate" expression="$func:endEffectiveDate"/>
-        <script language="js">
-            <![CDATA[
-            var id = mc.getProperty('uri.var.id');
-            var patient = mc.getProperty('uri.var.patient');
-            var status = mc.getProperty('uri.var.status');
-            var startEffectiveDate = mc.getProperty('uri.var.startEffectiveDate');
-            var endEffectiveDate = mc.getProperty('uri.var.endEffectiveDate');
-            urlQuery = '';
-            if  (id != null && id != "") {
-                urlQuery += '_id=' + id + '&';
-            }
-            if  (patient != null && patient != "") {
-                urlQuery += 'patient=' + patient + '&';
-            }
-            if  (status != null && status != "") {
-                urlQuery += 'status=' + status + '&';
-            }
-            if  (startEffectiveDate != null && startEffectiveDate != "") {
-                urlQuery += 'effectiveDate=gt' + startEffectiveDate + '&';
-            }
-            if  (endEffectiveDate != null && endEffectiveDate != "") {
-                urlQuery += 'effectiveDate=lt' + endEffectiveDate + '&';
-            }
-            if  (urlQuery != null && urlQuery  != "") {
-                urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
-            }
-            mc.setProperty('uri.var.urlQuery',urlQuery);
-            ]]>
-        </script>
         <filter source="boolean($ctx:uri.var.id) or boolean($ctx:uri.var.patient)"
                 regex="false">
             <then>
@@ -76,11 +47,39 @@
                 <send/>
             </then>
             <else>
+                <script language="js">
+                    <![CDATA[
+                    var id = mc.getProperty('uri.var.id');
+                    var patient = mc.getProperty('uri.var.patient');
+                    var status = mc.getProperty('uri.var.status');
+                    var startEffectiveDate = mc.getProperty('uri.var.startEffectiveDate');
+                    var endEffectiveDate = mc.getProperty('uri.var.endEffectiveDate');
+                    urlQuery = '';
+                    if  (id != null && id != "") {
+                        urlQuery += '_id=' + id + '&';
+                    }
+                    if  (patient != null && patient != "") {
+                        urlQuery += 'patient=' + patient + '&';
+                    }
+                    if  (status != null && status != "") {
+                        urlQuery += 'status=' + status + '&';
+                    }
+                    if  (startEffectiveDate != null && startEffectiveDate != "") {
+                        urlQuery += 'effectiveDate=gt' + startEffectiveDate + '&';
+                    }
+                    if  (endEffectiveDate != null && endEffectiveDate != "") {
+                        urlQuery += 'effectiveDate=lt' + endEffectiveDate + '&';
+                    }
+                    if  (urlQuery != null && urlQuery  != "") {
+                        urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
+                    }
+                    mc.setProperty('uri.var.urlQuery',urlQuery);
+                    ]]>
+                </script>
                 <header name="Accept" scope="transport" value="application/json+fhir"/>
                 <call>
-                    <log category="INFO" level="full" separator=","/>
                     <endpoint>
-                        <http method="Get"
+                        <http method="GET"
                               uri-template="{uri.var.base}/MedicationStatement{+uri.var.urlQuery}"/>
                     </endpoint>
                 </call>

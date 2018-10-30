@@ -74,6 +74,7 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getString("id"), eiRestResponse.getBody().getString("id"));
     }
 
     /**
@@ -85,10 +86,12 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchPatient.json");
         final String apiEndPoint = connectorProperties.getProperty("base") + "/"
                 + connectorProperties.getProperty("type") + "?given=" + connectorProperties.getProperty("patientGivenName") +
-                "&birthdate=eq" + connectorProperties.getProperty("patientBirthdate");
+                "&birthdate=" + connectorProperties.getProperty("patientBirthdate");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("birthDate"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("birthDate"));
     }
 
     /**
@@ -98,12 +101,14 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchConditionWithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchCondition");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchCondition.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("conditionType") + "?patient=" + connectorProperties.getProperty("patient") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Condition"
+                + "?patient=" + connectorProperties.getProperty("patient") +
                 "&category=" + connectorProperties.getProperty("conditionCategory");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getJSONObject("patient").getString("display"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getJSONObject("patient").getString("display"));
     }
 
     /**
@@ -113,13 +118,14 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchMedicationStatementwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchMedicationStatement");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchMedicationStatement.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("medicationStatementType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/MedicationStatement" +
                 "?patient=" + connectorProperties.getProperty("patient") + "&status=" +
                 connectorProperties.getProperty("status");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"));
     }
 
     /**
@@ -129,13 +135,14 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchGoalwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchGoal");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchGoal.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("goalType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Goal" +
                 "?patient=" + connectorProperties.getProperty("patient") + "&_lastUpdated=gt" +
                 connectorProperties.getProperty("startDate") + "&_lastUpdated=lt" + connectorProperties.getProperty("endDate");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("startDate"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("startDate"));
     }
 
     /**
@@ -145,11 +152,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchAllergyIntolerancelwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchAllergyIntolerance");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchAllergyIntolerance.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("allergyType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/AllergyIntolerance" +
                 "?patient=" + connectorProperties.getProperty("patient") + "&onset=gt" + connectorProperties.getProperty("onset");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"));
     }
 
     /**
@@ -159,11 +168,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchCarePlanwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchCarePlan");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchCarePlan.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("carePlanType") + "?patient=" + connectorProperties.getProperty("patientId");
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/CarePlan"
+                + "?patient=" + connectorProperties.getProperty("patientId");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"));
     }
 
     /**
@@ -173,11 +184,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchDevicewithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchDevice");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchDevice.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("deviceType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Device"  +
                 "?patient=" + connectorProperties.getProperty("patientId");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"));
     }
 
     /**
@@ -187,14 +200,15 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchDiagnosticReportwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchDiagnosticReport");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchDiagnosticReport.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("diagnosticReportType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/DiagnosticReport" +
                 "?patient=" + connectorProperties.getProperty("patientId") + "&date=gt" +
                 connectorProperties.getProperty("reportStartDate")
                 + "&date=lt" + connectorProperties.getProperty("reportEndDate");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("id"));
     }
 
     /**
@@ -204,12 +218,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchDocumentReferencewithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchDocumentReference");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchDocumentReference.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("documentReferenceType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/DocumentReference" +
                 "?_id=" + connectorProperties.getProperty("documentId");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"));
     }
 
     /**
@@ -219,11 +234,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchFamilyMemberHistorywithMandatoryParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchFamilyMemberHistory");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchFamilyMemberHistory.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" +
-                connectorProperties.getProperty("familyHistoryType") + "?patient=" + connectorProperties.getProperty("patientId");
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/FamilyMemberHistory" +
+                 "?patient=" + connectorProperties.getProperty("patientId");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("name"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("name"));
     }
 
     /**
@@ -233,12 +250,14 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchImmunizationwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchImmunization");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchImmunization.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("immunizationType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Immunization" +
                 "?patient=" + connectorProperties.getProperty("patientId") + "&date=gt" +
                 connectorProperties.getProperty("immunizationStartDate");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"));
     }
 
     /**
@@ -248,11 +267,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchMedicationOrderwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchMedicationOrder");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchMedicationOrder.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("medicationOrderType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/MedicationOrder" +
                 "?patient=" + connectorProperties.getProperty("patientId") + "&status=" + connectorProperties.getProperty("status");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("dateWritten"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("dateWritten"));
     }
 
     /**
@@ -262,11 +283,13 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchObservationwithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchObservation");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchObservation.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("observationType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Observation" +
                 "?patient=" + connectorProperties.getProperty("patientId") + "&code=" + connectorProperties.getProperty("code");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("effectiveDateTime"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("effectiveDateTime"));
     }
 
     /**
@@ -276,10 +299,12 @@ public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     public void searchProcedurewithOptionalParameters() throws IOException, JSONException {
         eiRequestHeadersMap.put("Action", "urn:searchProcedure");
         RestResponse<JSONObject> eiRestResponse = sendJsonRestRequest(proxyUrl, "POST", eiRequestHeadersMap, "searchProcedure.json");
-        final String apiEndPoint = connectorProperties.getProperty("base") + "/" + connectorProperties.getProperty("procedureType") +
+        final String apiEndPoint = connectorProperties.getProperty("base") + "/Procedure" +
                 "?patient=" + connectorProperties.getProperty("patientId");
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         Assert.assertEquals(eiRestResponse.getHttpStatusCode(), 200,"Invalid parameter value");
         Assert.assertEquals(apiRestResponse.getHttpStatusCode(), 200, "Invalid parameter value");
+        Assert.assertEquals(apiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"),
+                eiRestResponse.getBody().getJSONArray("entry").getJSONObject(0).getJSONObject("resource").getString("status"));
     }
 }

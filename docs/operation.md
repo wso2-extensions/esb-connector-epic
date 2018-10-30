@@ -50,11 +50,20 @@ Following is a sample REST request that can be handled by the readById operation
 {
  "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
  "type": “Binary",
- "id": "T51iWjMg3MhfQWNRaJpmEF8ALTC6lQcunX-VTNpxqyTiV8.6oSleCNUa5Yr82YE4CJaCO0rcZankXUhpoCWkzlwB"
+ "id": "TYqNBNqjwBO6mCw-0GNyScM5-Cx98sUwSgDyEUEWNlB55kA1n68TTxXsvJJka2DAOHnyzUkZ9uW3UfBJjH4orKAB"
 }
 ```
 >Note: the readById operation can be used to read [practitioner](https://open.epic.com/Clinical/Patient) resource as well as [Medication](https://open.epic.com/Clinical/Medication) resource.
 
+**Sample response**
+```json
+{
+    "resourceType": "Binary",
+    "id": "TYqNBNqjwBO6mCw-0GNyScM5-Cx98sUwSgDyEUEWNlB55kA1n68TTxXsvJJka2DAOHnyzUkZ9uW3UfBJjH4orKAB",
+    "contentType": "application/xml",
+    "content": "Binary content"
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/Document](https://open.epic.com/Clinical/Document)
 
@@ -87,6 +96,82 @@ Following is a sample REST request that can be handled by the searchAllergyIntol
  "type": “AllergyIntolerance",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "onset": "2012-11-07T00:00:00Z"
+}
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/AllergyIntolerance?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&onset=2012-11-07T00:00:00Z"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/AllergyIntolerance/TBwnNbrAqC0Qw5Ha7AFT-2AB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/AllergyIntolerance/TBwnNbrAqC0Qw5Ha7AFT-2AB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "recordedDate": "2015-08-24T23:11:36Z",
+        "status": "confirmed",
+        "criticality": "CRITL",
+        "id": "TBwnNbrAqC0Qw5Ha7AFT-2AB",
+        "onset": "2012-11-07T00:00:00Z",
+        "recorder": {
+          "display": "MOORE, SEAN",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/TItWfhjChtlo0pFh9nzctSQB"
+        },
+        "patient": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "substance": {
+          "text": "PENICILLIN G",
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7980",
+              "display": "PENICILLIN G"
+            },
+            {
+              "system": "http://fdasis.nlm.nih.gov",
+              "code": "Q42T66VG0C",
+              "display": "PENICILLIN G"
+            }
+          ]
+        },
+        "reaction": [
+          {
+            "certainty": "confirmed",
+            "onset": "2012-11-07T00:00:00Z",
+            "manifestation": [
+              {
+                "text": "Hives"
+              }
+            ],
+            "note": {
+              "text": "Severity low enough to be prescribed if needed."
+            }
+          }
+        ],
+        "note": {
+          "text": "Severity low enough to be prescribed if needed."
+        }
+      }
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -128,6 +213,265 @@ Following is a sample REST request that can be handled by the searchCarePlan ope
  "category": "38717003"
 }
 ```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/CarePlan?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&category=38717003"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/CarePlan/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/CarePlan/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+        "status": "active",
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "addresses": [
+          {
+            "display": "Agoraphobia",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/T1kK.xqvU20cEJe860G4aKgB"
+          },
+          {
+            "display": "Chronic cough",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/ToXGIl7BNrvoF6BVybVSoawB"
+          },
+          {
+            "display": "Asthma",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/T14QqO8NyASby4jGtzuSA6gB"
+          },
+          {
+            "display": "Hemoglobin A1c above reference range",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/TOVSAAQTrMr9e45nCzc8S5wB"
+          },
+          {
+            "display": "TB (pulmonary tuberculosis)",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/TajPohVuPYfDdU-wGcm.KMgB"
+          },
+          {
+            "display": "Zika virus disease",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/T-HzNQh62IyOLOuPFOaTtDgB"
+          }
+        ],
+        "goal": [
+          {
+            "display": "Hemoglobin A1c < 7.0",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Goal/T20lh4qYCPP9sg31ZDfMLcwB"
+          },
+          {
+            "display": "Reduce the need for your rescue inhaler to less than once each month",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Goal/TbtW9qZPjDclmbmGLLcZkRAB"
+          }
+        ],
+        "activity": [
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "other",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "other",
+                    "display": "Other"
+                  }
+                ]
+              },
+              "code": {
+                "text": "CT abdomen with contrast"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "CBC AND DIFFERENTIAL"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "CBC WITH AUTO DIFFERENTIAL"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "TYPE AND SCREEN"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "COMPREHENSIVE METABOLIC PANEL"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "CBC"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "HEMOGLOBIN A1C"
+              }
+            }
+          },
+          {
+            "detail": {
+              "prohibited": false,
+              "category": {
+                "text": "procedure",
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/care-plan-activity-category",
+                    "code": "procedure",
+                    "display": "Procedure"
+                  }
+                ]
+              },
+              "code": {
+                "text": "LUMBAR PUNCTURE"
+              }
+            }
+          }
+        ],
+        "category": [
+          {
+            "text": "Longitudinal",
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "38717003",
+                "display": "Longitudinal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "search": {
+        "mode": "outcome"
+      },
+      "resource": {
+        "resourceType": "OperationOutcome",
+        "id": "2438047",
+        "issue": [
+          {
+            "severity": "warning",
+            "location": [
+              "http.category"
+            ],
+            "code": "informational",
+            "details": {
+              "text": "An unknown query parameter was supplied by the client.",
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                  "code": "4122",
+                  "display": "An unknown query parameter was supplied by the client."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/CarePlan](https://open.epic.com/Clinical/CarePlan)
 
@@ -165,7 +509,94 @@ Following is a sample REST request that can be handled by the searchCondition op
  "type": “Condition",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "category": "diagnosis",
- "clinicalStatus": "resolved"
+ "clinicalStatus": "active"
+}
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&category=diagnosis&clinicalStatus=active"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/T1kK.xqvU20cEJe860G4aKgB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/T1kK.xqvU20cEJe860G4aKgB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Condition",
+        "dateRecorded": "2015-08-24",
+        "clinicalStatus": "active",
+        "onsetDateTime": "2015-08-24",
+        "verificationStatus": "confirmed",
+        "id": "T1kK.xqvU20cEJe860G4aKgB",
+        "patient": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "asserter": {
+          "display": "MOORE, SEAN",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/TItWfhjChtlo0pFh9nzctSQB"
+        },
+        "code": {
+          "text": "Agoraphobia",
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.90",
+              "code": "F40.00",
+              "display": "Agoraphobia"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "70691001",
+              "display": "Agoraphobia (disorder)"
+            }
+          ]
+        },
+        "category": {
+          "text": "Diagnosis",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29308-4",
+              "display": "Diagnosis"
+            },
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439401001",
+              "display": "Diagnosis"
+            },
+            {
+              "system": "http://hl7.org/fhir/condition-category",
+              "code": "diagnosis",
+              "display": "Diagnosis"
+            },
+            {
+              "system": "http://argonautwiki.hl7.org/extension-codes",
+              "code": "problem",
+              "display": "Problem"
+            }
+          ]
+        },
+        "severity": {
+          "text": "Medium"
+        }
+      }
+    }
+   ]
 }
 ```
 **Related epic documentation**
@@ -205,7 +636,56 @@ Following is a sample REST request that can be handled by the searchDevice opera
  "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
  "type": “Device",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
- "deviceType": "Pacemaker"
+ "udi": "(17)170324(21)455884315749"
+}
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Device?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&udi=(17)170324(21)455884315749"
+    }
+  ],
+  "entry": [
+    {
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Device/TCqziYTxuM-ZyuEVLm2vyvgB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Device",
+        "udi": "(17)170324(21)455884315749",
+        "model": "G754-B",
+        "expiry": "2017-03-24T00:00:00Z",
+        "id": "TCqziYTxuM-ZyuEVLm2vyvgB",
+        "status": "available",
+        "patient": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "type": {
+          "text": "Pacemaker",
+          "coding": [
+            {
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.737780.70",
+              "code": "110",
+              "display": "Pacemaker"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -243,6 +723,103 @@ Following is a sample REST request that can be handled by the searchDiagnosticRe
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "startDate": "2016-02-01",
  "endDate": "2016-03-01"
+}
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DiagnosticReport?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&date=gt2016-02-01&date=lt2016-03-01"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DiagnosticReport/TcBUxystqz3GaFH9DJMbHIAB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DiagnosticReport/TcBUxystqz3GaFH9DJMbHIAB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "registered",
+        "effectiveDateTime": "2016-02-06T18:00:00Z",
+        "issued": "2016-02-08T19:12:00Z",
+        "id": "TcBUxystqz3GaFH9DJMbHIAB",
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "981967",
+            "type": {
+              "text": "Placer Identifier",
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/identifier-type",
+                  "code": "PLAC",
+                  "display": "Placer Identifier"
+                }
+              ]
+            }
+          }
+        ],
+        "code": {
+          "text": "CBC WITH AUTO DIFFERENTIAL"
+        },
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "performer": {
+          "display": "Physician Family Medicine",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/T3Mz3KLBDVXXgaRoee3EKAAB"
+        },
+        "result": [
+          {
+            "display": "Component: LEUKOCYTES [10*3/ML] CORRECTED FOR NUCLEATED ERYTHROCYTES IN BLOOD",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.okW4lQgqPzu7V1lBvE17joB"
+          },
+          {
+            "display": "Component: ERYTHROCYTES [10*6/UL] IN BLOOD BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.mPFnpMedsr1YJfBlc7qDlgB"
+          },
+          {
+            "display": "Component: HEMATOCRIT (%) BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.taYT0aP8tpA6EMqwysMD-YB"
+          },
+          {
+            "display": "Component: ERYTHROCYTE MEAN CORPUSCULAR HEMOGLOBIN [PG] BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.rCJF0vit80lYaUKjdV9PIkB"
+          },
+          {
+            "display": "Component: ERYTHROCYTE MEAN CORPUSCULAR HEMOGLOBIN CONCENTRATION [G/DL] BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.qYI7D5DXBSs75JZ.E-Zp4EB"
+          },
+          {
+            "display": "Component: ERYTHROCYTE DISTRIBUTION WIDTH [RATIO] BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.kFFQctsJuhWvwoAjUJDRpcB"
+          },
+          {
+            "display": "Component: PLATELETS [10*3/UL] IN BLOOD AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.ieu-B9RmRSXTVvHdzncHg8B"
+          },
+          {
+            "display": "Component: PLATELET MEAN VOLUME [FL] IN BLOOD BY AUTOMATED COUNT",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Ta2SF7QbUwYc48UV97Nkr.nw89.qY6NrmzFt.zIJ47hUB"
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -285,6 +862,121 @@ Following is a sample REST request that can be handled by the searchDocumentRefe
  "endDate": "2016-01-26"
 }
 ```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DocumentReference?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&created=ge2016-01-26&created=lt2016-01-26"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DocumentReference/T51iWjMg3MhfQWNRaJpmEF8ALTC6lQcunX-VTNpxqyTiV8.6oSleCNUa5Yr82YE4CJaCO0rcZankXUhpoCWkzlwB",
+      "search": {
+        "mode": "match"
+      },
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/DocumentReference/T51iWjMg3MhfQWNRaJpmEF8ALTC6lQcunX-VTNpxqyTiV8.6oSleCNUa5Yr82YE4CJaCO0rcZankXUhpoCWkzlwB"
+        }
+      ],
+      "resource": {
+        "resourceType": "DocumentReference",
+        "created": "2016-10-18T00:00:00Z",
+        "indexed": "2016-10-18T00:00:00Z",
+        "status": "current",
+        "id": "T51iWjMg3MhfQWNRaJpmEF8ALTC6lQcunX-VTNpxqyTiV8.6oSleCNUa5Yr82YE4CJaCO0rcZankXUhpoCWkzlwB",
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "class": {
+          "text": "Summarization of Episode Note",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "type": {
+          "text": "Summarization of Episode Note",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summarization of Episode Note"
+            }
+          ]
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/xml",
+              "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Binary/T51iWjMg3MhfQWNRaJpmEF8ALTC6lQcunX-VTNpxqyTiV8.6oSleCNUa5Yr82YE4CJaCO0rcZankXUhpoCWkzlwB"
+            }
+          }
+        ],
+        "masterIdentifier": {
+          "value": "1.2.840.114350.1.13.0.1.7.8.688883.11147"
+        }
+      }
+    },
+    {
+      "search": {
+        "mode": "outcome"
+      },
+      "resource": {
+        "resourceType": "OperationOutcome",
+        "id": "2438196",
+        "issue": [
+          {
+            "severity": "warning",
+            "location": [
+              "http.created"
+            ],
+            "code": "informational",
+            "details": {
+              "text": "An unknown query parameter was supplied by the client.",
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                  "code": "4122",
+                  "display": "An unknown query parameter was supplied by the client."
+                }
+              ]
+            }
+          },
+          {
+            "severity": "warning",
+            "location": [
+              "http.created"
+            ],
+            "code": "informational",
+            "details": {
+              "text": "An unknown query parameter was supplied by the client.",
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.657369",
+                  "code": "4122",
+                  "display": "An unknown query parameter was supplied by the client."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/Document](https://open.epic.com/Clinical/Document)
 
@@ -313,6 +1005,117 @@ Following is a sample REST request that can be handled by the searchFamilyMember
  "type": “FamilyMemberHistory",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
 }
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 3,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/FamilyMemberHistory?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+    }
+  ],
+  "entry": [
+    {
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "date": "2015-08-27",
+        "name": "Hera",
+        "deceasedBoolean": false,
+        "status": "partial",
+        "patient": {
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+          "display": "Jason Argonaut"
+        },
+        "relationship": {
+          "text": "Mother",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/v3-FamilyMember",
+              "code": "MTH",
+              "display": "Mother"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "code": {
+              "text": "Abnormal EKG"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "date": "2015-08-27",
+        "name": "Zeus",
+        "deceasedBoolean": false,
+        "status": "partial",
+        "patient": {
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+          "display": "Jason Argonaut"
+        },
+        "relationship": {
+          "text": "Father",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/v3-FamilyMember",
+              "code": "FTH",
+              "display": "Father"
+            }
+          ]
+        },
+        "condition": [
+          {
+            "code": {
+              "text": "Allergy (severe)"
+            },
+            "note": {
+              "text": "Allergic to Golden Fleece"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "FamilyMemberHistory",
+        "date": "2015-08-27",
+        "name": "Athena",
+        "deceasedBoolean": false,
+        "status": "partial",
+        "patient": {
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+          "display": "Jason Argonaut"
+        },
+        "relationship": {
+          "text": "Sister",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/v3-FamilyMember",
+              "code": "SIS",
+              "display": "Sister"
+            }
+          ]
+        }
+      }
+    }
+  ]
+} 
 ```
 **Related epic documentation**
 [https://open.epic.com/Clinical/FamHx](https://open.epic.com/Clinical/FamHx)
@@ -349,7 +1152,74 @@ Following is a sample REST request that can be handled by the searchGoal operati
  "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
  "type": “Goal",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
- "status": "achieved"
+ "status": "in-progress"
+}
+```
+
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Goal?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Goal/T20lh4qYCPP9sg31ZDfMLcwB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Goal/T20lh4qYCPP9sg31ZDfMLcwB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Goal",
+        "startDate": "2016-03-26",
+        "description": "Hemoglobin A1c < 7.0",
+        "status": "in-progress",
+        "id": "T20lh4qYCPP9sg31ZDfMLcwB",
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "category": [
+          {
+            "text": "Result Component",
+            "coding": [
+              {
+                "system": "urn:oid:1.2.840.114350.1.13.0.1.7.4.737184.20005",
+                "code": "5",
+                "display": "Result Component"
+              }
+            ]
+          }
+        ],
+        "author": {
+          "display": "MOORE, SEAN",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/TItWfhjChtlo0pFh9nzctSQB"
+        },
+        "addresses": [
+          {
+            "display": "Hemoglobin A1c Above Reference Range",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Condition/TOVSAAQTrMr9e45nCzc8S5wB"
+          }
+        ],
+        "note": [
+          {
+            "text": "Regularly monitor A1C levels toward overall goal of 6.0."
+          }
+        ]
+      }
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -386,6 +1256,77 @@ Following is a sample REST request that can be handled by the searchImmunization
  "type": “Immunization",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "startDate": "2016-03-01"
+}
+```
+
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Immunization?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&date=gt2016-03-01"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Immunization/TfHwRVsICbE33tGGsW1GWvgB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Immunization/TfHwRVsICbE33tGGsW1GWvgB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Immunization",
+        "status": "completed",
+        "date": "2016-03-02T00:00:00Z",
+        "wasNotGiven": false,
+        "reported": true,
+        "id": "TfHwRVsICbE33tGGsW1GWvgB",
+        "vaccineCode": {
+          "text": "Cholera",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "26",
+              "display": "CHOLERA"
+            }
+          ]
+        },
+        "patient": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "site": {
+          "text": "Left arm",
+          "coding": [
+            {
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.768076.4040",
+              "code": "14",
+              "display": "Left arm"
+            }
+          ]
+        },
+        "route": {
+          "text": "Intravenous",
+          "coding": [
+            {
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.10.768076.4030",
+              "code": "6",
+              "display": "Intravenous"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -425,6 +1366,122 @@ Following is a sample REST request that can be handled by the searchMedicationOr
  "status": "active,completed",
 }
 ```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationOrder?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&status=active,completed"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationOrder/TG49lm2wVQlU58.ppXAAYnQB",
+      "search": {
+        "mode": "match"
+      },
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationOrder/TG49lm2wVQlU58.ppXAAYnQB"
+        }
+      ],
+      "resource": {
+        "resourceType": "MedicationOrder",
+        "dateWritten": "2015-08-24",
+        "status": "completed",
+        "id": "TG49lm2wVQlU58.ppXAAYnQB",
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "971097"
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.798268.801",
+            "value": "971097:0412944669"
+          }
+        ],
+        "patient": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "prescriber": {
+          "display": "Physician Family Medicine",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/T3Mz3KLBDVXXgaRoee3EKAAB"
+        },
+        "medicationReference": {
+          "display": "acetaminophen (TYLENOL 8 HOUR) 650 MG 8 hr tablet",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Medication/TvoALIQGLNsjQ3HzzxmSWLwB"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet (650 mg total) by mouth every 8 (eight) hours as needed for mild pain for up to 10 days.",
+            "asNeededBoolean": true,
+            "route": {
+              "text": "Oral",
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.4.698288.330",
+                  "code": "15",
+                  "display": "Oral"
+                }
+              ]
+            },
+            "method": {
+              "text": "Take",
+              "coding": [
+                {
+                  "system": "urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.8600",
+                  "code": "11",
+                  "display": "Take"
+                }
+              ]
+            },
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 8,
+                "periodUnits": "h",
+                "boundsPeriod": {
+                  "start": "2015-08-24T00:00:00Z",
+                  "end": "2015-09-03T00:00:00Z"
+                }
+              }
+            },
+            "doseQuantity": {
+              "value": 1,
+              "unit": "tablet"
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 0,
+          "expectedSupplyDuration": {
+            "value": 10,
+            "unit": "days",
+            "code": "d",
+            "system": "urn:oid:2.16.840.1.113883.6.8"
+          },
+          "quantity": {
+            "value": 30,
+            "unit": "tablet"
+          },
+          "validityPeriod": {
+            "start": "2015-08-24T00:00:00Z",
+            "end": "2015-09-03T00:00:00Z"
+          }
+        }
+      }
+    }
+   ]
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/Medication](https://open.epic.com/Clinical/Medication)
 
@@ -440,7 +1497,7 @@ The search Medication Statement operation provides information about medications
     <patient>{$ctx:patient}</patient>
     <status>{$ctx:status}</status>
     <startEffectiveDate>{$ctx:startEffectiveDate}</startEffectiveDate>
-    <endEffectiveDate>{$ctx:endEffectiveDate]</endEffectiveDate>
+    <endEffectiveDate>{$ctx:endEffectiveDate}</endEffectiveDate>
 </Epic.searchMedicationStatement>
 ```
 **Properties**
@@ -461,6 +1518,114 @@ Following is a sample REST request that can be handled by the searchMedicationSt
  "type": “MedicationStatement",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "status": "active,completed",
+}
+```
+**Sample response**
+```json
+{
+    "resourceType": "Bundle",
+    "type": "searchset",
+    "total": 1,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationStatement?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&status=active,completed"
+        }
+    ],
+    "entry": [
+        {
+            "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationStatement/TEYRqlko22AB6J.Fi4MCvpwB",
+            "link": [
+                {
+                    "relation": "self",
+                    "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/MedicationStatement/TEYRqlko22AB6J.Fi4MCvpwB"
+                }
+            ],
+            "search": {
+                "mode": "match"
+            },
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "status": "completed",
+                "id": "TEYRqlko22AB6J.Fi4MCvpwB",
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+                        "value": "971096"
+                    },
+                    {
+                        "use": "usual",
+                        "system": "urn:oid:1.2.840.114350.1.13.0.1.7.3.798268.801",
+                        "value": "971096:0396167050"
+                    }
+                ],
+                "patient": {
+                    "display": "Jason Argonaut",
+                    "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+                },
+                "informationSource": {
+                    "display": "Physician Family Medicine",
+                    "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/T3Mz3KLBDVXXgaRoee3EKAAB"
+                },
+                "effectivePeriod": {
+                    "start": "2015-08-24T00:00:00Z",
+                    "end": "2015-09-03T00:00:00Z"
+                },
+                "medicationCodeableConcept": {
+                    "text": "amoxicillin (AMOXIL) 500 MG capsule",
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "308191",
+                            "display": "amoxicillin (AMOXIL) 500 MG capsule"
+                        }
+                    ]
+                },
+                "dosage": [
+                    {
+                        "text": "Take 1 capsule (500 mg total) by mouth 3 (three) times a day for 10 days.",
+                        "asNeededBoolean": false,
+                        "timing": {
+                            "repeat": {
+                                "frequency": 1,
+                                "period": 8,
+                                "periodUnits": "h",
+                                "boundsPeriod": {
+                                    "start": "2015-08-24T00:00:00Z",
+                                    "end": "2015-09-03T00:00:00Z"
+                                }
+                            }
+                        },
+                        "route": {
+                            "text": "Oral",
+                            "coding": [
+                                {
+                                    "system": "urn:oid:1.2.840.114350.1.13.0.1.7.4.698288.330",
+                                    "code": "15",
+                                    "display": "Oral"
+                                }
+                            ]
+                        },
+                        "method": {
+                            "text": "Take",
+                            "coding": [
+                                {
+                                    "system": "urn:oid:1.2.840.114350.1.13.0.1.7.4.798268.8600",
+                                    "code": "11",
+                                    "display": "Take"
+                                }
+                            ]
+                        },
+                        "quantityQuantity": {
+                            "value": 1,
+                            "unit": "capsule"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
 }
 ```
 **Related epic documentation**
@@ -507,6 +1672,164 @@ Following is a sample REST request that can be handled by the searchObservation 
  "endDate": "20160101"
 }
 ```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&code=718-7&date=lt20160101"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/TDsM-v6omSaRsvT.-NvxIwEKnfOsXOrOtzmcRysvbQ6cB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/TDsM-v6omSaRsvT.-NvxIwEKnfOsXOrOtzmcRysvbQ6cB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Observation",
+        "effectiveDateTime": "2015-10-03T20:21:00Z",
+        "issued": "2015-10-03T20:21:00Z",
+        "status": "final",
+        "id": "TDsM-v6omSaRsvT.-NvxIwEKnfOsXOrOtzmcRysvbQ6cB",
+        "code": {
+          "text": "HEMOGLOBIN [G/DL] IN BLOOD",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 13,
+          "unit": "g/dL",
+          "code": "g/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "interpretation": {
+          "text": "Low",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/observation-interpretation",
+              "code": "L",
+              "display": "Low"
+            }
+          ]
+        },
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "referenceRange": [
+          {
+            "text": "13.5 - 17.5 g/dL",
+            "low": {
+              "value": 13.5,
+              "unit": "g/dL",
+              "code": "g/dL",
+              "system": "http://unitsofmeasure.org"
+            },
+            "high": {
+              "value": 17.5,
+              "unit": "g/dL",
+              "code": "g/dL",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ],
+        "category": {
+          "text": "Laboratory",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/observation-category",
+              "code": "laboratory",
+              "display": "Laboratory"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Te4K6zjiXtD2Z7Fdc.AXXOJEMbKy.y6IjKIGTLxjw96oB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Observation/Te4K6zjiXtD2Z7Fdc.AXXOJEMbKy.y6IjKIGTLxjw96oB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Observation",
+        "effectiveDateTime": "2015-10-03T20:20:00Z",
+        "issued": "2015-10-03T20:20:00Z",
+        "status": "preliminary",
+        "id": "Te4K6zjiXtD2Z7Fdc.AXXOJEMbKy.y6IjKIGTLxjw96oB",
+        "code": {
+          "text": "HEMOGLOBIN [G/DL] IN BLOOD",
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 16,
+          "unit": "g/dL",
+          "code": "g/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "referenceRange": [
+          {
+            "text": "13.5 - 17.5 g/dL",
+            "low": {
+              "value": 13.5,
+              "unit": "g/dL",
+              "code": "g/dL",
+              "system": "http://unitsofmeasure.org"
+            },
+            "high": {
+              "value": 17.5,
+              "unit": "g/dL",
+              "code": "g/dL",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ],
+        "category": {
+          "text": "Laboratory",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/observation-category",
+              "code": "laboratory",
+              "display": "Laboratory"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/Observation](https://open.epic.com/Clinical/Observation)
 
@@ -547,8 +1870,340 @@ Following is a sample REST request that can be handled by the searchPatient oper
 {
  "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
  "type": “Patient",
- "identifier": "E3814",
- "gender": "female"
+ "family": "Argonaut",
+ "given": "Jason"
+}
+```
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "1985-08-01",
+        "active": true,
+        "gender": "male",
+        "deceasedBoolean": false,
+        "id": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+        "careProvider": [
+          {
+            "display": "Physician Family Medicine",
+            "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Practitioner/T3Mz3KLBDVXXgaRoee3EKAAB"
+          }
+        ],
+        "name": [
+          {
+            "use": "usual",
+            "text": "Jason Argonaut",
+            "family": [
+              "Argonaut"
+            ],
+            "given": [
+              "Jason"
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.327.1.7.5.737384.0",
+            "value": "E3826"
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.3.4",
+            "value": "203579"
+          }
+        ],
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1979 Milky Way Dr."
+            ],
+            "city": "Verona",
+            "state": "WI",
+            "postalCode": "53593",
+            "country": "US"
+          },
+          {
+            "use": "temp",
+            "line": [
+              "5301 Tokay Blvd"
+            ],
+            "city": "MADISON",
+            "state": "WI",
+            "postalCode": "53711",
+            "country": "US",
+            "period": {
+              "start": "2011-08-04T00:00:00Z",
+              "end": "2014-08-04T00:00:00Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "608-271-9000",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "608-771-9000",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "608-771-9000",
+            "use": "mobile"
+          },
+          {
+            "system": "fax",
+            "value": "608-771-9000",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "608-771-9000",
+            "use": "temp",
+            "period": {
+              "start": "2011-08-04T00:00:00Z",
+              "end": "2014-08-04T00:00:00Z"
+            }
+          },
+          {
+            "system": "email",
+            "value": "open@epic.com"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/marital-status",
+              "code": "S",
+              "display": "Never Married"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "preferred": true,
+            "language": {
+              "text": "English",
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.6.99",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            }
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-race",
+            "valueCodeableConcept": {
+              "text": "Asian",
+              "coding": [
+                {
+                  "system": "2.16.840.1.113883.5.104",
+                  "code": "2028-9",
+                  "display": "Asian"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity",
+            "valueCodeableConcept": {
+              "text": "Not Hispanic or Latino",
+              "coding": [
+                {
+                  "system": "2.16.840.1.113883.5.50",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-birth-sex",
+            "valueCodeableConcept": {
+              "text": "Male",
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                  "code": "M",
+                  "display": "Male"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Ta1lSLg3glOZyQI.K3L08iF1-Tlb0E3TXC2L2CsyGMScB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Ta1lSLg3glOZyQI.K3L08iF1-Tlb0E3TXC2L2CsyGMScB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "birthDate": "1985-08-01",
+        "active": true,
+        "gender": "male",
+        "deceasedBoolean": false,
+        "id": "Ta1lSLg3glOZyQI.K3L08iF1-Tlb0E3TXC2L2CsyGMScB",
+        "name": [
+          {
+            "use": "usual",
+            "text": "Jason Argonaut",
+            "family": [
+              "Argonaut"
+            ],
+            "given": [
+              "Jason"
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.327.1.7.5.737384.0",
+            "value": "E4648"
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.3.4",
+            "value": "203719"
+          }
+        ],
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1979 Milky Way Dr."
+            ],
+            "city": "Verona",
+            "state": "WI",
+            "postalCode": "53593",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "608-271-9000",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "608-771-9000",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "608-771-9000",
+            "use": "mobile"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married",
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/ValueSet/marital-status",
+              "code": "M",
+              "display": "Married"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "preferred": true,
+            "language": {
+              "text": "English",
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.6.99",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            }
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-race",
+            "valueCodeableConcept": {
+              "text": "Other Race",
+              "coding": [
+                {
+                  "system": "2.16.840.1.113883.5.104",
+                  "code": "2131-1",
+                  "display": "Other Race"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity",
+            "valueCodeableConcept": {
+              "text": "Not Hispanic or Latino",
+              "coding": [
+                {
+                  "system": "2.16.840.1.113883.5.50",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/us-core-birth-sex",
+            "valueCodeableConcept": {
+              "text": "Male",
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/AdministrativeGender",
+                  "code": "M",
+                  "display": "Male"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient?family=Argonaut&given=Jason"
+    }
+  ]
 }
 ```
 **Related epic documentation**
@@ -587,6 +2242,125 @@ Following is a sample REST request that can be handled by the searchProcedure op
  "startDate": "2015-12-31"
 }
 ```
+
+**Sample response**
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&date=gt2015-12-31"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "notPerformed": false,
+        "performedDateTime": "2016-08-06T13:27:00Z",
+        "id": "T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB",
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "988735",
+            "type": {
+              "text": "ORD"
+            }
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+            "value": "33882",
+            "type": {
+              "text": "EAP"
+            }
+          }
+        ],
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "code": {
+          "text": "CT ABDOMEN W CONTRAST",
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "74160",
+              "display": "CHG CT SCAN OF ABDOMEN CONTRAST"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "notPerformed": false,
+        "performedDateTime": "2016-11-23T18:47:00Z",
+        "id": "TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B",
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "1001984",
+            "type": {
+              "text": "ORD"
+            }
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+            "value": "41423",
+            "type": {
+              "text": "EAP"
+            }
+          }
+        ],
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "code": {
+          "text": "REMOVE STAPLES",
+          "coding": [
+            {
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+              "code": "41423",
+              "display": "REMOVE STAPLES"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 **Related epic documentation**
 [https://open.epic.com/Clinical/Procedure](https://open.epic.com/Clinical/Procedure)
 
@@ -594,7 +2368,8 @@ Following is a sample REST request that can be handled by the searchProcedure op
 Following is a sample proxy service that illustrates how to connect to Epic with the init operation and use the searchObservation operation. 
 The sample request for this proxy can be found in searchObservation sample request. You can use this sample as a template for using other operations in this category.
 
-**Sample Proxy**
+1. Create a sample proxy as below :
+
 ```xml
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="searchProcedure"
        statistics="disable" trace="disable" transports="https,http" startOnLoad="true">
@@ -621,4 +2396,135 @@ The sample request for this proxy can be found in searchObservation sample reque
     <parameter name="serviceType">proxy</parameter>
     <description/>
 </proxy>
+```
+2. Create a json file called searchProcedure.json containing the following json:
+```
+{
+ "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
+ "type": “Procedure",
+ "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
+ "startDate": "2015-12-31"
+}
+```
+3. Execute the following cURL command: 
+```
+curl http://localhost:8280/services/searchAppointment -d @searchAppointment.json
+```
+4. Epic will return a json response as below
+```json
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 2,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure?patient=Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB&date=gt2015-12-31"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "notPerformed": false,
+        "performedDateTime": "2016-08-06T13:27:00Z",
+        "id": "T2ffTCnlLQ-grHJP5yDSZjn5j0NrpKynvAK9vwE7XNDAB",
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "988735",
+            "type": {
+              "text": "ORD"
+            }
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+            "value": "33882",
+            "type": {
+              "text": "EAP"
+            }
+          }
+        ],
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "code": {
+          "text": "CT ABDOMEN W CONTRAST",
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "74160",
+              "display": "CHG CT SCAN OF ABDOMEN CONTRAST"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B",
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Procedure/TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B"
+        }
+      ],
+      "search": {
+        "mode": "match"
+      },
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "notPerformed": false,
+        "performedDateTime": "2016-11-23T18:47:00Z",
+        "id": "TSHhR7qMWAaHUzPGu5ausdAaCXeK.suMTMs1EiqVcX18B",
+        "identifier": [
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.798268",
+            "value": "1001984",
+            "type": {
+              "text": "ORD"
+            }
+          },
+          {
+            "use": "usual",
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+            "value": "41423",
+            "type": {
+              "text": "EAP"
+            }
+          }
+        ],
+        "subject": {
+          "display": "Jason Argonaut",
+          "reference": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/Patient/Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB"
+        },
+        "code": {
+          "text": "REMOVE STAPLES",
+          "coding": [
+            {
+              "system": "urn:oid:1.2.840.114350.1.13.0.1.7.2.696580",
+              "code": "41423",
+              "display": "REMOVE STAPLES"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
 ```

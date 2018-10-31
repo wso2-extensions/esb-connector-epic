@@ -20,7 +20,7 @@
     <subComponents>
         <component name="readById">
             <file>readById.xml</file>
-            <description>Retrieve the Resource details by ID.</description>
+            <description>Retrieve a specific resource by the ID.</description>
         </component>
     </subComponents>
 </component>

@@ -20,31 +20,31 @@
     <subComponents>
         <component name="searchPatient">
             <file>searchPatient.xml</file>
-            <description>Search Patient using the given parameters</description>
+            <description>The Patient resource provides general demographic information about a person receiving health care services from a specific organization.</description>
         </component>
         <component name="searchAllergyIntolerance">
             <file>searchAllergyIntolerance.xml</file>
-            <description>The AllergyIntolerance resource defines the substance that elicited the response, as well as when the reaction occured, the severity, and the type of reaction noted. </description>
+            <description>The AllergyIntolerance resource defines the substance that elicited the response, as well as when the reaction occurred, the severity, and the type of reaction noted.</description>
         </component>
         <component name="searchMedicationOrder">
             <file>searchMedicationOrder.xml</file>
-            <description> The FHIR MedicationOrder resource defines detailed information about a medication that was ordered for a patient, including prescriptions or OTC drugs ordered in an ambulatory clinic. </description>
+            <description> The FHIR MedicationOrder resource defines detailed information about a medication that was ordered for a patient, including prescriptions or OTC drugs ordered in an ambulatory clinic.</description>
         </component>
         <component name="searchMedicationStatement">
             <file>searchMedicationStatement.xml</file>
-            <description> The FHIR MedicationStatement resource defines detailed information about medications being consumed by a patient, including medication prescriptions, OTC drugs ordered in an ambulatory clinic, and medications reported by a patient. </description>
+            <description> The FHIR MedicationStatement resource defines detailed information about medications being consumed by a patient, including medication prescriptions, OTC drugs ordered in an ambulatory clinic, and medications reported by a patient.</description>
         </component>
         <component name="searchCondition">
             <file>searchCondition.xml</file>
-            <description>The FHIR Condition resource defines detailed information about a Condition, problem, or diagnosis relevant to the health of the patient.  </description>
+            <description>The FHIR Condition resource defines detailed information about a Condition, problem, or diagnosis relevant to the health of the patient.</description>
         </component>
         <component name="searchFamilyMemberHistory">
             <file>searchFamilyMemberHistory.xml</file>
-            <description>The FHIR FamilyMemberHistory resource defines a patient's family history. This resource returns the current status, age, and medical and surgical history of relatives related to a specific patient. </description>
+            <description>The FHIR FamilyMemberHistory resource defines a patient's family history. This resource returns the current status, age, and medical and surgical history of relatives related to a specific patient.</description>
         </component>
         <component name="searchObservation">
             <file>searchObservation.xml</file>
-            <description>The FHIR Observation resource defines information about a measurement or simple assertion made about a patient.  </description>
+            <description>The FHIR Observation resource defines information about a measurement or simple assertion made about a patient.</description>
         </component>
         <component name="searchDiagnosticReport">
             <file>searchDiagnosticReport.xml</file>
@@ -52,15 +52,15 @@
         </component>
         <component name="searchImmunization">
             <file>searchImmunization.xml</file>
-            <description>The FHIR Immunization Resource provides information about a patient's immunizations</description>
+            <description>The FHIR Immunization Resource provides information about a patient's immunizations.</description>
         </component>
         <component name="searchProcedure">
             <file>searchProcedure.xml</file>
-            <description>The FHIR Procedure resource defines an activity performed on or with a patient as part of the provision of care</description>
+            <description>The FHIR Procedure resource defines an activity performed on or with a patient as part of the provision of care.</description>
         </component>
         <component name="searchDocumentReference">
             <file>searchDocumentReference.xml</file>
-            <description> The FHIR DocumentReference resource describes information about a document</description>
+            <description> The FHIR DocumentReference resource describes information about a document.</description>
         </component>
         <component name="searchCarePlan">
             <file>searchCarePlan.xml</file>

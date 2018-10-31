@@ -16,7 +16,6 @@
 ~  specific language governing permissions and limitations
 ~  under the License.
 -->
-
 <template name="getConformance" xmlns="http://ws.apache.org/ns/synapse">
     <sequence>
         <header name="Accept" scope="transport" value="application/json+fhir"/>

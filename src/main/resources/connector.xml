@@ -23,7 +23,7 @@
         <dependency component="epic-search"/>
         <dependency component="epic-read"/>
         <dependency component="epic-create"/>
-        <description>WSO2 connector for Epic FHIR API</description>
+        <description>WSO2 connector for Epic FHIR API.</description>
     </component>
     <icon>icon/icon-small.gif</icon>
 </connector>

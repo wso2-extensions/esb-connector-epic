@@ -2408,7 +2408,7 @@ The sample request for this proxy can be found in searchObservation sample reque
 ```
 3. Execute the following cURL command: 
 ```
-curl http://localhost:8280/services/searchAppointment -d @searchAppointment.json
+curl http://localhost:8280/services/searchProcedure -d @searchProcedure.json
 ```
 4. Epic will return a json response as below
 ```json

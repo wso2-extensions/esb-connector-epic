@@ -20,7 +20,7 @@
     <subComponents>
         <component name="getConformance">
             <file>getConformance.xml</file>
-            <description>The Conformance resource documents, the functionality implemented from the HL7 FHIR standard</description>
+            <description>The Conformance resource documents the functionality implemented using the HL7 FHIR standard.</description>
         </component>
     </subComponents>
 </component>

@@ -3,7 +3,7 @@
 
 ## Initializing the connector
 To use the Epic connector, add the <Epic.init> element in your configuration before carrying out any Epic operations.
-This <Epic.init> element used to authenticates the user using OAuth2 authentication to access the Epic registered client applications.
+This <Epic.init> element authenticates the user using OAuth2 authentication to access the Epic registered client applications.
 For more information on authorizing requests in Epic, see [API Doc](https://open.epic.com/Tutorial/OAuth).
 
 
@@ -16,7 +16,7 @@ For more information on authorizing requests in Epic, see [API Doc](https://open
 ```
 **Properties**
 * baseUrl: The API URL to access the endpoint. Eg:<https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/>
-* accessToken: Access token obtained when using epic registered applications.
+* accessToken: Access token obtained when using Epic registered applications.
 
 > Note: Access token is not necessary when sandbox is used.
 
@@ -36,4 +36,4 @@ Required message builders
 ```xml
 <messageBuilder contentType="application/json+fhir" class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
 ```
-Now that you have connected to Epic connector,  check [Working with the Epic Connector](operation.md) to perform various operations with the connector.
+Now that you have configured the Epic connector,  check [Working with the Epic Connector](operation.md) to perform various operations using the connector.

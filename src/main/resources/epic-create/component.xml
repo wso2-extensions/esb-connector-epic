@@ -20,7 +20,7 @@
     <subComponents>
         <component name="create">
             <file>create.xml</file>
-            <description>Create a specific resource</description>
+            <description>Create a specific resource.</description>
         </component>
     </subComponents>
 </component>

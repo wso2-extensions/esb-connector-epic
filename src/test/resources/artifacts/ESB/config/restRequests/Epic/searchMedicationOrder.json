@@ -1,0 +1,6 @@
+{
+  "base": "%s(base)",
+  "type": "MedicationOrder",
+  "patient": "%s(patientId)",
+  "status": "%s(status)"
+}

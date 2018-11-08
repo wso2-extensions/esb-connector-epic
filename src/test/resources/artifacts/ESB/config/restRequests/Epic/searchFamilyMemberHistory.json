@@ -1,0 +1,5 @@
+{
+  "base": "%s(base)",
+  "type": "FamilyMemberHistory",
+  "patient": "%s(patientId)"
+}

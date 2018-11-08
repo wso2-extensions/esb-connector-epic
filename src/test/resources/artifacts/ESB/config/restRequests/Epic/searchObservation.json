@@ -1,0 +1,6 @@
+{
+  "base": "%s(base)",
+  "type": "Observation",
+  "patient": "%s(patientId)",
+  "code": "%s(code)"
+}

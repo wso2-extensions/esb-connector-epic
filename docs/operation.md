@@ -32,11 +32,11 @@ This readById operation reads a resource based on the Id you provide.
 
 **ReadById**
 ```xml
-<Epic.readById>
+<epic.readById>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
-</Epic.readById>
+</epic.readById>
 ```
 **Properties**
 * base: The service root URL.
@@ -48,8 +48,8 @@ This readById operation reads a resource based on the Id you provide.
 Following is a sample REST request that can be handled by the readById operation.
 ```
 {
- "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
- "type": “Binary",
+ "base": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
+ "type": "Binary",
  "id": "TYqNBNqjwBO6mCw-0GNyScM5-Cx98sUwSgDyEUEWNlB55kA1n68TTxXsvJJka2DAOHnyzUkZ9uW3UfBJjH4orKAB"
 }
 ```
@@ -73,12 +73,12 @@ This will include the substance which caused the allergy, the type of reaction a
 
 **searchAllergyIntolerance**
 ```xml
-<Epic.searchAllergyIntolerance>
+<epic.searchAllergyIntolerance>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
     <onset>{$ctx:onset}</onset>
-</Epic.searchAllergyIntolerance>
+</epic.searchAllergyIntolerance>
 ```
 **Properties**
 * base: The service root URL
@@ -92,8 +92,8 @@ This will include the substance which caused the allergy, the type of reaction a
 Following is a sample REST request that can be handled by the searchAllergyIntolerance operation.
 ```
 {
- "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
- "type": “AllergyIntolerance",
+ "base": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
+ "type": "AllergyIntolerance",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "onset": "2012-11-07T00:00:00Z"
 }
@@ -183,7 +183,7 @@ Also this will contain information about appointment , referrals and orders.
 
 **searchCarePlan**
 ```xml
-<Epic.searchCarePlan>
+<epic.searchCarePlan>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -191,7 +191,7 @@ Also this will contain information about appointment , referrals and orders.
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
     <category>{$ctx:category}</category>
-</Epic.searchCarePlan>
+</epic.searchCarePlan>
 ```
 **Properties**
 * base: The service root URL.
@@ -207,8 +207,8 @@ Also this will contain information about appointment , referrals and orders.
 Following is a sample REST request that can be handled by the searchCarePlan operation.
 ```
 {
- "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
- "type": “CarePlan",
+ "base": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
+ "type": "CarePlan",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "category": "38717003"
 }
@@ -480,7 +480,7 @@ The searchCondition Operation provides details about the condition of a patient.
 
 **searchCondition**
 ```xml
-<Epic.searchCondition>
+<epic.searchCondition>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
@@ -488,7 +488,7 @@ The searchCondition Operation provides details about the condition of a patient.
     <clinicalStatus>{$ctx:clinicalStatus}</clinicalStatus>
     <startOnset>{$ctx:startOnset}</startOnset>
     <endOnset>{$ctx:endOnset}</endOnset>
-</Epic.searchCondition>
+</epic.searchCondition>
 ```
 **Properties**
 * base: The service root URL.
@@ -607,7 +607,7 @@ The searchDevice operation provides details about implanted device in a patient.
 
 **searchDevice**
 ```xml
-<Epic.searchDevice>
+<epic.searchDevice>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -616,7 +616,7 @@ The searchDevice operation provides details about implanted device in a patient.
     <udi>{$ctx:udi}</udi>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchDevice>
+</epic.searchDevice>
 ```
 **Properties**
 * base: The service root URL.
@@ -696,14 +696,14 @@ The searchDiagnosticReport operation provides diagnostic service performed for a
 
 **searchDiagnosticReport**
 ```xml
-<Epic.searchDiagnosticReport>
+<epic.searchDiagnosticReport>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
     <patient>{$ctx:patient}</patient>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchDiagnosticReport>
+</epic.searchDiagnosticReport>
 ```
 **Properties**
 * base: The service root URL.
@@ -831,7 +831,7 @@ This resource only provides meta-data about the document.
 
 **searchDocumentReference**
 ```xml
-<Epic.searchDocumentReference>
+<epic.searchDocumentReference>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -839,7 +839,7 @@ This resource only provides meta-data about the document.
     <class>{$ctx:class}</class>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchDocumentReference>
+</epic.searchDocumentReference>
 ```
 **Properties**
 * base: The service root URL.
@@ -985,11 +985,11 @@ The searchFamilyHistory resource provides patient's family history. This resourc
 
 **searchFamilyMemberHistory**
 ```xml
-<Epic.searchFamilyMemberHistory>
+<epic.searchFamilyMemberHistory>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
-</Epic.searchFamilyMemberHistory>
+</epic.searchFamilyMemberHistory>
 ```
 **Properties**
 * base: The service root URL.
@@ -1125,7 +1125,7 @@ The search Goal operation provides information about the defined objectives for 
 
 **searchGoal**
 ```xml
-<Epic.searchGoal>
+<epic.searchGoal>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
@@ -1133,7 +1133,7 @@ The search Goal operation provides information about the defined objectives for 
     <status>{$ctx:status}</status>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchGoal>
+</epic.searchGoal>
 ```
 **Properties**
 * base: The service root URL.
@@ -1230,14 +1230,14 @@ The search Immunization operation provide information about a patient's immuniza
 
 **searchImmunization**
 ```xml
-<Epic.searchImmunization>
+<epic.searchImmunization>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
     <id>{$ctx:id}</id>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchImmunization>
+</epic.searchImmunization>
 ```
 **Properties**
 * base: The service root URL.
@@ -1338,14 +1338,14 @@ medication that should be taken by or given to the patient.
 
 **searchMedicationOrder**
 ```xml
-<Epic.searchMedicationOrder>
+<epic.searchMedicationOrder>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
     <id>{$ctx:id}</id>
     <status>{$ctx:status}</status>
     <dateWritten>{$ctx:dateWritten}</dateWritten>
-</Epic.searchMedicationOrder>
+</epic.searchMedicationOrder>
 ```
 **Properties**
 * base: The service root URL.
@@ -1490,7 +1490,7 @@ The search Medication Statement operation provides information about medications
 
 **searchMedicationStatement**
 ```xml
-<Epic.searchMedicationStatement>
+<epic.searchMedicationStatement>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -1498,7 +1498,7 @@ The search Medication Statement operation provides information about medications
     <status>{$ctx:status}</status>
     <startEffectiveDate>{$ctx:startEffectiveDate}</startEffectiveDate>
     <endEffectiveDate>{$ctx:endEffectiveDate}</endEffectiveDate>
-</Epic.searchMedicationStatement>
+</epic.searchMedicationStatement>
 ```
 **Properties**
 * base: The service root URL.
@@ -1635,7 +1635,7 @@ Following is a sample REST request that can be handled by the searchMedicationSt
 The searchObservation operation provides information about measurements or simple assertion made about a patient.
 **searchObservation**
 ```xml
-<Epic.searchObservation>
+<epic.searchObservation>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -1646,7 +1646,7 @@ The searchObservation operation provides information about measurements or simpl
     <endDate>{$ctx:endDate}</endDate>
     <startIssued>{$ctx:startIssued}</startIssued>
     <endIssued>{$ctx:endIssued}</endIssued>
-</Epic.searchObservation>
+</epic.searchObservation>
 ```
 **Properties**
 * base: The service root URL.
@@ -1838,7 +1838,7 @@ The searchPatient operation provide information about a patient, which will incl
 
 **searchPatient**
 ```xml
-<Epic.searchPatient>
+<epic.searchPatient>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <id>{$ctx:id}</id>
@@ -1849,7 +1849,7 @@ The searchPatient operation provide information about a patient, which will incl
     <gender>{$ctx:gender}</gender>
     <address>{$ctx:address}</address>
     <telecom>{$ctx:telecom}</telecom>
-</Epic.searchPatient>
+</epic.searchPatient>
 ```
 **Properties**
 * base: The service root URL.
@@ -2214,14 +2214,14 @@ The searchProcedure operation provides information about surgeries, Procedures s
 
 **searchProcedure**
 ```xml
-<Epic.searchProcedure>
+<epic.searchProcedure>
     <base>{$ctx:base}</base>
     <type>{$ctx:type}</type>
     <patient>{$ctx:patient}</patient>
     <id>{$ctx:id}</id>
     <startDate>{$ctx:startDate}</startDate>
     <endDate>{$ctx:endDate}</endDate>
-</Epic.searchProcedure>
+</epic.searchProcedure>
 ```
 **Properties**
 * base: The service root URL.
@@ -2379,14 +2379,14 @@ The sample request for this proxy can be found in searchObservation sample reque
             <property name="type" expression="json-eval($.type)"/>
             <property name="patient" expression="json-eval($.patient)"/>
             <property name="startDate" expression="json-eval($.startDate)"/>
-            <Epic.init>
+            <epic.init>
                 <base>{$ctx:base}</base>
-            </Epic.init>
-            <Epic.searchProcedure>
+            </epic.init>
+            <epic.searchProcedure>
                 <type>{$ctx:type}</type>
                 <patient>{$ctx:patient}</patient>
                 <startDate>{$ctx:startDate}</startDate>
-            </Epic.searchProcedure>
+            </epic.searchProcedure>
             <log category="INFO" level="full" separator=","/>
             <send/>
         </inSequence>
@@ -2400,8 +2400,8 @@ The sample request for this proxy can be found in searchObservation sample reque
 2. Create a json file called searchProcedure.json containing the following json:
 ```
 {
- "base": “https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
- "type": “Procedure",
+ "base": "https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/",
+ "type": "Procedure",
  "patient": "Tbt3KuCY0B5PSrJvCu2j-PlK.aiHsu2xUjUM8bWpetXoB",
  "startDate": "2015-12-31"
 }

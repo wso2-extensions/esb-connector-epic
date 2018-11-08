@@ -28,7 +28,7 @@
     <url>http://wso2.org</url>
 
     <properties>
-        <connector.name>Epic</connector.name>
+        <connector.name>epic</connector.name>
         <integration.base.version>1.0.3</integration.base.version>
         <product.ei.version>6.4.0</product.ei.version>
         <carbon.kernel.version>4.4.17</carbon.kernel.version>

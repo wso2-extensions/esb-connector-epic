@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
 /**
- * Integration test for Epic Connector
+ * Integration test for epic Connector
  */
 public class EpicConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 

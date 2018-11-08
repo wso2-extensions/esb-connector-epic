@@ -2,17 +2,17 @@
 [[Initializing the connector]](#initializing-the-connector)[[Additional Information]](#additional-information)
 
 ## Initializing the connector
-To use the Epic connector, add the <Epic.init> element in your configuration before carrying out any Epic operations.
-This <Epic.init> element authenticates the user using OAuth2 authentication to access the Epic registered client applications.
+To use the Epic connector, add the <epic.init> element in your configuration before carrying out any Epic operations.
+This <epic.init> element authenticates the user using OAuth2 authentication to access the Epic registered client applications.
 For more information on authorizing requests in Epic, see [API Doc](https://open.epic.com/Tutorial/OAuth).
 
 
 **init**
 ```xml
-<Epic.init>
+<epic.init>
     <base>{$ctx:base}</base>
     <accessToken>{$ctx:accessToken}</accessToken>
-</Epic.init>
+</epic.init>
 ```
 **Properties**
 * baseUrl: The API URL to access the endpoint. Eg:<https://open-ic.epic.com/FHIR/api/FHIR/DSTU2/>

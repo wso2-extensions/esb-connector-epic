@@ -16,7 +16,7 @@
 ~  specific language governing permissions and limitations
 ~  under the License.
 -->
-<proxy xmlns="http://ws.apache.org/ns/synapse" name="Epic"
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="epic"
        statistics="disable" trace="disable" transports="https,http" startOnLoad="true">
     <target>
         <inSequence>
@@ -33,113 +33,113 @@
             <property name="code" expression="json-eval($.code)"/>
             <property name="given" expression="json-eval($.given)"/>
             <property name="birthdate" expression="json-eval($.birthdate)"/>
-            <Epic.init>
+            <epic.init>
                 <base>{$ctx:base}</base>
-            </Epic.init>
+            </epic.init>
             <switch source="get-property('transport', 'Action')">
             <case regex="urn:getConformance">
-                <Epic.getConformance/>
+                <epic.getConformance/>
             </case>
             <case regex="urn:readById">
-                <Epic.readById>
+                <epic.readById>
                     <type>{$ctx:type}</type>
                     <id>{$ctx:id}</id>
-                </Epic.readById>
+                </epic.readById>
             </case>
             <case regex="urn:searchAllergyIntolerance">
-                <Epic.searchAllergyIntolerance>
+                <epic.searchAllergyIntolerance>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <onset>{$ctx:onset}</onset>
-                </Epic.searchAllergyIntolerance>
+                </epic.searchAllergyIntolerance>
             </case>
             <case regex="urn:searchCarePlan">
-                <Epic.searchCarePlan>
+                <epic.searchCarePlan>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
-                </Epic.searchCarePlan>
+                </epic.searchCarePlan>
             </case>
             <case regex="urn:searchCondition">
-                <Epic.searchCondition>
+                <epic.searchCondition>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <category>{$ctx:category}</category>
-                </Epic.searchCondition>
+                </epic.searchCondition>
             </case>
             <case regex="urn:searchDevice">
-                <Epic.searchDevice>
+                <epic.searchDevice>
                     <deviceType>{$ctx:deviceType}</deviceType>
                     <patient>{$ctx:patient}</patient>
-                </Epic.searchDevice>
+                </epic.searchDevice>
             </case>
             <case regex="urn:searchDiagnosticReport">
-                <Epic.searchDiagnosticReport>
+                <epic.searchDiagnosticReport>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <startDate>{$ctx:startDate}</startDate>
                     <endDate>{$ctx:endDate}</endDate>
-                </Epic.searchDiagnosticReport>
+                </epic.searchDiagnosticReport>
             </case>
             <case regex="urn:searchDocumentReference">
-                <Epic.searchDocumentReference>
+                <epic.searchDocumentReference>
                     <type>{$ctx:type}</type>
                     <id>{$ctx:id}</id>
-                </Epic.searchDocumentReference>
+                </epic.searchDocumentReference>
             </case>
             <case regex="urn:searchFamilyMemberHistory">
-                <Epic.searchFamilyMemberHistory>
+                <epic.searchFamilyMemberHistory>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
-                </Epic.searchFamilyMemberHistory>
+                </epic.searchFamilyMemberHistory>
             </case>
             <case regex="urn:searchGoal">
-                <Epic.searchGoal>
+                <epic.searchGoal>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <startDate>{$ctx:startDate}</startDate>
                     <endDate>{$ctx:endDate}</endDate>
-                </Epic.searchGoal>
+                </epic.searchGoal>
             </case>
             <case regex="urn:searchImmunization">
-                <Epic.searchImmunization>
+                <epic.searchImmunization>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <startDate>{$ctx:startDate}</startDate>
-                </Epic.searchImmunization>
+                </epic.searchImmunization>
             </case>
             <case regex="urn:searchMedicationOrder">
-                <Epic.searchMedicationOrder>
+                <epic.searchMedicationOrder>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <status>{$ctx:status}</status>
-                </Epic.searchMedicationOrder>
+                </epic.searchMedicationOrder>
             </case>
             <case regex="urn:searchMedicationStatement">
-                <Epic.searchMedicationStatement>
+                <epic.searchMedicationStatement>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <status>{$ctx:status}</status>
-                </Epic.searchMedicationStatement>
+                </epic.searchMedicationStatement>
             </case>
             <case regex="urn:searchObservation">
-                <Epic.searchObservation>
+                <epic.searchObservation>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
                     <code>{$ctx:code}</code>
-                </Epic.searchObservation>
+                </epic.searchObservation>
             </case>
             <case regex="urn:searchPatient">
-                <Epic.searchPatient>
+                <epic.searchPatient>
                     <type>{$ctx:type}</type>
                     <given>{$ctx:given}</given>
                     <birthdate>{$ctx:birthdate}</birthdate>
-                </Epic.searchPatient>
+                </epic.searchPatient>
             </case>
             <case regex="urn:searchProcedure">
-                <Epic.searchProcedure>
+                <epic.searchProcedure>
                     <type>{$ctx:type}</type>
                     <patient>{$ctx:patient}</patient>
-                </Epic.searchProcedure>
+                </epic.searchProcedure>
             </case>
             </switch>
             <respond/>

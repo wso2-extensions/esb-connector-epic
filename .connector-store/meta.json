@@ -1,0 +1,12 @@
+{
+    "name": "Epic",
+    "owner": "WSO2",
+    "category": "Other",
+    "documentationUrl": "https://github.com/wso2-extensions/esb-connector-epic/tree/org.wso2.carbon.esb.connector.epic-1.0.0",
+    "description": "The Epic connector allows you to access the Epic FHIR APIs through WSO2 Enterprise Integrator (WSO2 EI). Epic connector currently supports the DSTU 2 Final (1.0.2) version of the FHIR standard.",
+    "status": "Active",
+    "labels": [
+        "healthcare"
+    ],
+    "releases": []
+}

@@ -6,14 +6,15 @@
     "description": "The Epic connector allows you to access the Epic FHIR APIs through WSO2 Enterprise Integrator (WSO2 EI). Epic connector currently supports the DSTU 2 Final (1.0.2) version of the FHIR standard.",
     "status": "Active",
     "labels": [
-        "healthcare"
+        "connector"
     ],
     "releases": [
         {
-            "tagName": "1.0.0",
+            "tag_name": "v1.0.0",
             "products": [
-                "EI 6.4.0"
-            ]
+                "\"EI 6.4.0\""
+            ],
+            "isHidden": false
         }
     ]
 }

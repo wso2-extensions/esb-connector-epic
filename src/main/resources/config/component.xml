@@ -16,11 +16,14 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<connector>
-    <component name="epicFhirR4" package="org.wso2.carbon.connector">
-        <dependency component="config"/>
-        <dependency component="functions"/>
-        <description>WSO2 FHIR R4 epicFhirR4 Connector</description>
-    </component>
-    <icon>icon/icon-small.png</icon>
-</connector>
+
+<!-- Generated on 17-Fri, 05, 2024 15:05:43+0530 -->
+
+<component name="config" type="synapse/template">
+    <subComponents>
+        <component name="init">
+            <file>init.xml</file>
+            <description>Init configuration file for epicFhirR4 connector.</description>
+        </component>
+    </subComponents>
+</component>

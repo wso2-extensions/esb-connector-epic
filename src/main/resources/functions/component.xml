@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<!-- Generated on 17-Fri, 05, 2024 15:05:43+0530 -->
+
+<component name="functions" type="synapse/template">
+    <subComponents>
+        <component name="create">
+            <file>create.xml</file>
+            <description>Creates a new resource in the server-specified location.</description>
+        </component>
+        <component name="getCapabilityStatement">
+            <file>getCapabilityStatement.xml</file>
+            <description>
+                The conformance/capability statement documents the functionality implemented using the HL7 FHIR - R4
+                standard.
+            </description>
+        </component>
+        <component name="readById">
+            <file>readById.xml</file>
+            <description>Retrieve a specific resource by the ID.</description>
+        </component>
+        <component name="searchAccount">
+            <file>searchAccount.xml</file>
+            <description>Search operation of Account resource.</description>
+        </component>
+        <component name="searchAdverseEvent">
+            <file>searchAdverseEvent.xml</file>
+            <description>Search operation of AdverseEvent resource.</description>
+        </component>
+        <component name="searchAllergyIntolerance">
+            <file>searchAllergyIntolerance.xml</file>
+            <description>Search operation of AllergyIntolerance resource.</description>
+        </component>
+        <component name="searchAppointment">
+            <file>searchAppointment.xml</file>
+            <description>Search operation of Appointment resource.</description>
+        </component>
+        <component name="searchBinary">
+            <file>searchBinary.xml</file>
+            <description>Search operation of Binary resource.</description>
+        </component>
+        <component name="searchBodyStructure">
+            <file>searchBodyStructure.xml</file>
+            <description>Search operation of BodyStructure resource.</description>
+        </component>
+        <component name="searchCarePlan">
+            <file>searchCarePlan.xml</file>
+            <description>Search operation of CarePlan resource.</description>
+        </component>
+        <component name="searchCareTeam">
+            <file>searchCareTeam.xml</file>
+            <description>Search operation of CareTeam resource.</description>
+        </component>
+        <component name="searchCommunication">
+            <file>searchCommunication.xml</file>
+            <description>Search operation of Communication resource.</description>
+        </component>
+        <component name="searchCondition">
+            <file>searchCondition.xml</file>
+            <description>Search operation of Condition resource.</description>
+        </component>
+        <component name="searchConsent">
+            <file>searchConsent.xml</file>
+            <description>Search operation of Consent resource.</description>
+        </component>
+        <component name="searchContract">
+            <file>searchContract.xml</file>
+            <description>Search operation of Contract resource.</description>
+        </component>
+        <component name="searchCoverage">
+            <file>searchCoverage.xml</file>
+            <description>Search operation of Coverage resource.</description>
+        </component>
+        <component name="searchDevice">
+            <file>searchDevice.xml</file>
+            <description>Search operation of Device resource.</description>
+        </component>
+        <component name="searchDeviceRequest">
+            <file>searchDeviceRequest.xml</file>
+            <description>Search operation of DeviceRequest resource.</description>
+        </component>
+        <component name="searchDeviceUseStatement">
+            <file>searchDeviceUseStatement.xml</file>
+            <description>Search operation of DeviceUseStatement resource.</description>
+        </component>
+        <component name="searchDiagnosticReport">
+            <file>searchDiagnosticReport.xml</file>
+            <description>Search operation of DiagnosticReport resource.</description>
+        </component>
+        <component name="searchDocumentReference">
+            <file>searchDocumentReference.xml</file>
+            <description>Search operation of DocumentReference resource.</description>
+        </component>
+        <component name="searchEncounter">
+            <file>searchEncounter.xml</file>
+            <description>Search operation of Encounter resource.</description>
+        </component>
+        <component name="searchEpisodeOfCare">
+            <file>searchEpisodeOfCare.xml</file>
+            <description>Search operation of EpisodeOfCare resource.</description>
+        </component>
+        <component name="searchExplanationOfBenefit">
+            <file>searchExplanationOfBenefit.xml</file>
+            <description>Search operation of ExplanationOfBenefit resource.</description>
+        </component>
+        <component name="searchFamilyMemberHistory">
+            <file>searchFamilyMemberHistory.xml</file>
+            <description>Search operation of FamilyMemberHistory resource.</description>
+        </component>
+        <component name="searchFlag">
+            <file>searchFlag.xml</file>
+            <description>Search operation of Flag resource.</description>
+        </component>
+        <component name="searchGoal">
+            <file>searchGoal.xml</file>
+            <description>Search operation of Goal resource.</description>
+        </component>
+        <component name="searchGroup">
+            <file>searchGroup.xml</file>
+            <description>Search operation of Group resource.</description>
+        </component>
+        <component name="searchImagingStudy">
+            <file>searchImagingStudy.xml</file>
+            <description>Search operation of ImagingStudy resource.</description>
+        </component>
+        <component name="searchImmunization">
+            <file>searchImmunization.xml</file>
+            <description>Search operation of Immunization resource.</description>
+        </component>
+        <component name="searchImmunizationRecommendation">
+            <file>searchImmunizationRecommendation.xml</file>
+            <description>Search operation of ImmunizationRecommendation resource.</description>
+        </component>
+        <component name="searchList">
+            <file>searchList.xml</file>
+            <description>Search operation of List resource.</description>
+        </component>
+        <component name="searchLocation">
+            <file>searchLocation.xml</file>
+            <description>Search operation of Location resource.</description>
+        </component>
+        <component name="searchMeasure">
+            <file>searchMeasure.xml</file>
+            <description>Search operation of Measure resource.</description>
+        </component>
+        <component name="searchMeasureReport">
+            <file>searchMeasureReport.xml</file>
+            <description>Search operation of MeasureReport resource.</description>
+        </component>
+        <component name="searchMedia">
+            <file>searchMedia.xml</file>
+            <description>Search operation of Media resource.</description>
+        </component>
+        <component name="searchMedication">
+            <file>searchMedication.xml</file>
+            <description>Search operation of Medication resource.</description>
+        </component>
+        <component name="searchMedicationAdministration">
+            <file>searchMedicationAdministration.xml</file>
+            <description>Search operation of MedicationAdministration resource.</description>
+        </component>
+        <component name="searchMedicationDispense">
+            <file>searchMedicationDispense.xml</file>
+            <description>Search operation of MedicationDispense resource.</description>
+        </component>
+        <component name="searchMedicationRequest">
+            <file>searchMedicationRequest.xml</file>
+            <description>Search operation of MedicationRequest resource.</description>
+        </component>
+        <component name="searchNutritionOrder">
+            <file>searchNutritionOrder.xml</file>
+            <description>Search operation of NutritionOrder resource.</description>
+        </component>
+        <component name="searchObservation">
+            <file>searchObservation.xml</file>
+            <description>Search operation of Observation resource.</description>
+        </component>
+        <component name="searchOrganization">
+            <file>searchOrganization.xml</file>
+            <description>Search operation of Organization resource.</description>
+        </component>
+        <component name="searchPatient">
+            <file>searchPatient.xml</file>
+            <description>Search operation of Patient resource.</description>
+        </component>
+        <component name="searchPractitioner">
+            <file>searchPractitioner.xml</file>
+            <description>Search operation of Practitioner resource.</description>
+        </component>
+        <component name="searchPractitionerRole">
+            <file>searchPractitionerRole.xml</file>
+            <description>Search operation of PractitionerRole resource.</description>
+        </component>
+        <component name="searchProcedure">
+            <file>searchProcedure.xml</file>
+            <description>Search operation of Procedure resource.</description>
+        </component>
+        <component name="searchQuestionnaire">
+            <file>searchQuestionnaire.xml</file>
+            <description>Search operation of Questionnaire resource.</description>
+        </component>
+        <component name="searchQuestionnaireResponse">
+            <file>searchQuestionnaireResponse.xml</file>
+            <description>Search operation of QuestionnaireResponse resource.</description>
+        </component>
+        <component name="searchRelatedPerson">
+            <file>searchRelatedPerson.xml</file>
+            <description>Search operation of RelatedPerson resource.</description>
+        </component>
+        <component name="searchRequestGroup">
+            <file>searchRequestGroup.xml</file>
+            <description>Search operation of RequestGroup resource.</description>
+        </component>
+        <component name="searchResearchStudy">
+            <file>searchResearchStudy.xml</file>
+            <description>Search operation of ResearchStudy resource.</description>
+        </component>
+        <component name="searchResearchSubject">
+            <file>searchResearchSubject.xml</file>
+            <description>Search operation of ResearchSubject resource.</description>
+        </component>
+        <component name="searchServiceRequest">
+            <file>searchServiceRequest.xml</file>
+            <description>Search operation of ServiceRequest resource.</description>
+        </component>
+        <component name="searchSpecimen">
+            <file>searchSpecimen.xml</file>
+            <description>Search operation of Specimen resource.</description>
+        </component>
+        <component name="searchSubstance">
+            <file>searchSubstance.xml</file>
+            <description>Search operation of Substance resource.</description>
+        </component>
+        <component name="searchTask">
+            <file>searchTask.xml</file>
+            <description>Search operation of Task resource.</description>
+        </component>
+        <component name="update">
+            <file>update.xml</file>
+            <description>Update a particular resource with provided details.</description>
+        </component>
+    </subComponents>
+</component>

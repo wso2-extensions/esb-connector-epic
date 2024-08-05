@@ -16,11 +16,17 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<connector>
-    <component name="epicFhirR4" package="org.wso2.carbon.connector">
-        <dependency component="config"/>
-        <dependency component="functions"/>
-        <description>WSO2 FHIR R4 epicFhirR4 Connector</description>
-    </component>
-    <icon>icon/icon-small.png</icon>
-</connector>
+
+<!-- Generated on 17-Fri, 05, 2024 15:05:43+0530 -->
+
+<template name="getCapabilityStatement" xmlns="http://ws.apache.org/ns/synapse">
+    <sequence>
+        <header name="Accept" scope="transport" value="application/fhir+json" action="set"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.base}/metadata"/>
+            </endpoint>
+        </call>
+        <class name="org.wso2.healthcare.integration.common.ehr.ResponseProcessingHandler"/>
+    </sequence>
+</template>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+<template name="init" onError="fault" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="base" description="The service Root URL."/>
+    <parameter name="accessToken" description="Represents the authorization of a specific application to access specific parts of a user’s data."/>
+    <parameter name="clientId" description="Client ID of the registered application."/>
+    <parameter name="tokenEndpoint" description="An HTTP endpoint that can be uses to obtain an access token."/>
+    <parameter name="privateKey" description="The private Key of the registered application."/>
+    <parameter name="keyStore" description="The name of the keystore in which private key stored."/>
+    <parameter name="keyStorePass" description="The passphrase of the keystore."/>
+    <parameter name="privateKeyAlias" description="The alias of private key."/>
+	<parameter name="enableUrlRewrite" description="Whether to enable/disable URL rewrite in the response payload."/>
+	<parameter name="baseUrl" description="Optional base URL to be replaced in the response."/>
+	<parameter name="serverUrl" description="Public server URL for URL rewrite."/>
+
+    <sequence>
+        <property name="_OH_INTERNAL_CLIENT_ID_" expression="$func:clientId"/>
+        <property name="_OH_INTERNAL_TOKEN_ENDPOINT_" expression="$func:tokenEndpoint"/>
+        <property name="_OH_INTERNAL_URL_REWRITE_" expression="$func:enableUrlRewrite" type="BOOLEAN" />
+        <property name="_OH_INTERNAL_OPTIONAL_BASE_URL_" expression="$func:baseUrl" />
+        <property name="_OH_INTERNAL_SERVER_URL_" expression="$func:serverUrl" />
+        <class name="org.wso2.healthcare.integration.common.ehr.auth.signed.ClientCredentialsWithJWTAccessTokenHandler"/>
+        <filter source="boolean($ctx:_OH_INTERNAL_ACCESS_TOKEN_)" regex="true">
+            <then>
+                <header name="Authorization" expression="fn:concat('Bearer ', $ctx:_OH_INTERNAL_ACCESS_TOKEN_)" scope="transport"/>
+            </then>
+        </filter>
+        <class name="org.wso2.carbon.connector.epic.SearchUtil"/>
+    </sequence>
+</template>

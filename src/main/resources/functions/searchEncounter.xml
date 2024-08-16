@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2024, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<!-- Generated on 17-Fri, 05, 2024 15:05:43+0530 -->
+
+<template xmlns="http://ws.apache.org/ns/synapse" name="searchEncounter">
+    <parameter name="enableUrlRewrite" description="Whether to enable/disable URL rewrite in the response payload."/>
+    <parameter name="baseUrl" description="Optional base URL to be replaced in the response."/>
+    <parameter name="serverUrl" description="Public server URL for URL rewrite."/>
+    <parameter name="class"
+               description="Refine a search for Encounter resources by class. By default, all classes are returned."/>
+    <parameter name="dateSearchBy" description=""/>
+    <parameter name="dateUpperBound"
+               description="Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included."/>
+    <parameter name="dateLowerBound"
+               description="Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included."/>
+    <parameter name="date"
+               description="Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included."/>
+    <parameter name="identifier"
+               description="Search for Encounter resources by encounter identifier in the format &lt;code system&gt;|&lt;code&gt;"/>
+    <parameter name="onlyscannable"
+               description="Refine a search for Encounter resources to scannable encounters only. By default, all Encounters are returned. Use a value of &quot;true&quot; to only return scannable encounters. Can only be used when the application is launched from Hyperspace."/>
+    <parameter name="patient"
+               description="Search for Encounter resources for a specified patient ID. You can use &quot;patient&quot; or &quot;subject&quot; equivalently, but they cannot be used at the same time for difference references."/>
+    <parameter name="subject"
+               description="Search for Encounter resources for a specified patient ID. You can use &quot;patient&quot; or &quot;subject&quot; equivalently, but they cannot be used at the same time for difference references."/>
+    <parameter name="account"/>
+    <parameter name="appointment"/>
+    <parameter name="basedOn"/>
+    <parameter name="diagnosis"/>
+    <parameter name="episodeOfCare"/>
+    <parameter name="location"/>
+    <parameter name="locationPeriodSearchBy" description=""/>
+    <parameter name="locationPeriodUpperBound"/>
+    <parameter name="locationPeriodLowerBound"/>
+    <parameter name="locationPeriod"/>
+    <parameter name="partOf"/>
+    <parameter name="participant"/>
+    <parameter name="participantType"/>
+    <parameter name="practitioner"/>
+    <parameter name="reasonCode"/>
+    <parameter name="reasonReference"/>
+    <parameter name="serviceProvider"/>
+    <parameter name="specialArrangement"/>
+    <parameter name="status"/>
+    <parameter name="type"/>
+    <parameter name="id"
+               description="FHIR resource IDs for the desired resources. If _id is used in a search, all other parameters will be ignored."/>
+    <parameter name="countSearchBy" description=""/>
+    <parameter name="countUpperBound" description="Number of results per page."/>
+    <parameter name="countLowerBound" description="Number of results per page."/>
+    <parameter name="count" description="Number of results per page."/>
+    <parameter name="additionalSearchParameters" description=""/>
+
+    <sequence>
+        <class name="org.wso2.healthcare.integration.common.ehr.FHIRUrlQueryBuilder">
+            <property name="parameterNames"
+                      value="class,dateUpperBound,dateLowerBound,date,identifier,onlyscannable,patient,subject,account,appointment,basedOn,diagnosis,episodeOfCare,location,locationPeriodUpperBound,locationPeriodLowerBound,locationPeriod,partOf,participant,participantType,practitioner,reasonCode,reasonReference,serviceProvider,specialArrangement,status,type,id,countUpperBound,countLowerBound,count,additionalSearchParameters"/>
+        </class>
+        <header name="Accept" scope="transport" value="application/fhir+json" action="set"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.base}/Encounter{+uri.var.urlQuery}"/>
+            </endpoint>
+        </call>
+        <class name="org.wso2.healthcare.integration.common.ehr.ResponseProcessingHandler"/>
+    </sequence>
+</template>

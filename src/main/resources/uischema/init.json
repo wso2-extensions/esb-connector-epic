@@ -1,0 +1,186 @@
+{
+    "connectorName": "epicFhirR4",
+    "operationName": "init",
+    "title": "Init",
+    "help": "<h1>Init</h1> <b>The init operation.</b>",
+    "elements": [
+        {
+            "type": "attributeGroup",
+            "value": {
+                "groupName": "General",
+                "elements": [
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Search",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "search",
+                                        "displayName": "Search",
+                                        "inputType": "searchBox",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Search for an attribute using the display name"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Basic",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "base",
+                                        "displayName": "Base URL",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "true",
+                                        "helpTip": "The service root URL."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "accessToken",
+                                        "displayName": "Access Token",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Represents the authorization of a specific application to access specific parts of a user’s data."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "clientId",
+                                        "displayName": "Client ID",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Client ID of the registered application."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "tokenEndpoint",
+                                        "displayName": "Token Endpoint",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "An HTTP endpoint that can be uses to obtain an access token."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "privateKey",
+                                        "displayName": "Private Key",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "The private Key of the registered application."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "keyStore",
+                                        "displayName": "Key Store",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "The name of the keystore in which private key stored."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "keyStorePass",
+                                        "displayName": "Key Store Pass",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "The passphrase of the keystore."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "privateKeyAlias",
+                                        "displayName": "Private Key Alias",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "The alias of private key."
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Replace URL",
+                            "elements": [
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "enableUrlRewrite",
+                                        "displayName" : "Enable",
+                                        "inputType" : "comboOrExpression",
+                                        "defaultValue" : "False",
+                                        "required" : "false",
+                                        "comboValues" : [
+                                            "True",
+                                            "False"
+                                        ],
+                                        "helpTip" : "Enable/disable replacing the base URL in the response payload."
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "baseUrl",
+                                        "displayName" : "URL",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "URL to be replaced in the response. If not specified, the Base URL will be used",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "serverUrl",
+                                        "displayName" : "Replace With",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "Server URL to replace with.",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

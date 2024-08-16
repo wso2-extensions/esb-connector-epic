@@ -1,0 +1,131 @@
+{
+    "connectorName": "epicFhirR4",
+    "operationName": "update",
+    "title": "Update",
+    "help": "<h1>Update</h1> <b>The update operation.</b>",
+    "elements": [
+        {
+            "type": "attributeGroup",
+            "value": {
+                "groupName": "General",
+                "elements": [
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Search",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "search",
+                                        "displayName": "Search",
+                                        "inputType": "searchBox",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Search for an attribute using the display name"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Basic",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "type",
+                                        "displayName": "Type",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "true",
+                                        "helpTip": "The type of the resource to be created."
+                                    }
+                                },
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "id",
+                                        "displayName": "Id",
+                                        "inputType": "stringOrExpression",
+                                        "defaultValue": "",
+                                        "required": "true",
+                                        "helpTip": "The id of the resource."
+                                    }
+                                },
+                                {
+                                      "type": "attribute",
+                                      "value": {
+                                          "name": "versionId",
+                                          "displayName": "Version ID",
+                                          "inputType": "stringOrExpression",
+                                          "defaultValue": "",
+                                          "required": "false",
+                                          "helpTip": "The version specific identifier of the resource. This value changes when the resource is updated, patched, or deleted."
+                                      }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Replace URL",
+                            "elements": [
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "enableUrlRewrite",
+                                        "displayName" : "Enable",
+                                        "inputType" : "comboOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "comboValues" : [
+                                            "True",
+                                            "False"
+                                        ],
+                                        "helpTip" : "Enable/disable replacing the base URL in the response payload."
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "baseUrl",
+                                        "displayName" : "URL",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "URL to be replaced in the response. If not specified, the Base URL will be used",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "serverUrl",
+                                        "displayName" : "Replace With",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "Server URL to replace with.",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

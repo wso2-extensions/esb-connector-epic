@@ -1,0 +1,473 @@
+{
+    "connectorName": "epicFhirR4",
+    "operationName": "searchEncounter",
+    "title": "Search Encounter",
+    "help": "<h1>Search Encounter</h1> <b>The search operation of the Encounter resource.</b>",
+    "elements": [
+        {
+            "type": "attributeGroup",
+            "value": {
+                "groupName": "General",
+                "elements": [
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Search",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "search",
+                                        "displayName": "Search",
+                                        "inputType": "searchBox",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Search for an attribute using the display name"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"attributeGroup",
+                        "value":{
+                            "groupName": "Basic",
+                            "elements":[
+                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "class",
+                                            "displayName": "Class",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Encounter resources by class. By default, all classes are returned."                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "dateSearchBy",
+                                            "displayName": "Date Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Date Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "dateUpperBound",
+                                            "displayName": "Date Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "dateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "dateLowerBound",
+                                            "displayName": "Date Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "dateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "date",
+                                            "displayName": "Date",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Encounter resources by date. By default, all Encounters are returned. Enter dates in ISO format (YYYY[-MM[-DD[THH:MM[:SS][TZ]]]]]). Local server time is assumed if time zone information is not included.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "dateSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "identifier",
+                                            "displayName": "Identifier",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Encounter resources by encounter identifier in the format <code system>|<code>"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "onlyscannable",
+                                            "displayName": "Onlyscannable",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Encounter resources to scannable encounters only. By default, all Encounters are returned. Use a value of \"true\" to only return scannable encounters. Can only be used when the application is launched from Hyperspace."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "patient",
+                                            "displayName": "Patient",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Encounter resources for a specified patient ID. You can use \"patient\" or \"subject\" equivalently, but they cannot be used at the same time for difference references."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "subject",
+                                            "displayName": "Subject",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Encounter resources for a specified patient ID. You can use \"patient\" or \"subject\" equivalently, but they cannot be used at the same time for difference references."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "account",
+                                            "displayName": "Account",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "appointment",
+                                            "displayName": "Appointment",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "basedOn",
+                                            "displayName": "Based On",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "diagnosis",
+                                            "displayName": "Diagnosis",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "episodeOfCare",
+                                            "displayName": "Episode Of Care",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "location",
+                                            "displayName": "Location",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "locationPeriodSearchBy",
+                                            "displayName": "Location Period Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Location Period Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "locationPeriodUpperBound",
+                                            "displayName": "Location Period Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "locationPeriodSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "locationPeriodLowerBound",
+                                            "displayName": "Location Period Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "locationPeriodSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "locationPeriod",
+                                            "displayName": "Location Period",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "locationPeriodSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "partOf",
+                                            "displayName": "Part Of",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "participant",
+                                            "displayName": "Participant",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "participantType",
+                                            "displayName": "Participant Type",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "practitioner",
+                                            "displayName": "Practitioner",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "reasonCode",
+                                            "displayName": "Reason Code",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "reasonReference",
+                                            "displayName": "Reason Reference",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "serviceProvider",
+                                            "displayName": "Service Provider",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "specialArrangement",
+                                            "displayName": "Special Arrangement",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "status",
+                                            "displayName": "Status",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "type",
+                                            "displayName": "Type",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "id",
+                                            "displayName": "Id",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "FHIR resource IDs for the desired resources. If _id is used in a search, all other parameters will be ignored."                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "countSearchBy",
+                                            "displayName": "Count Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Count Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "countUpperBound",
+                                            "displayName": "Count Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "countLowerBound",
+                                            "displayName": "Count Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "count",
+                                            "displayName": "Count",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "additionalSearchParameters",
+                                            "displayName": "Additional Search Parameters",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": ""                                        }
+                                    }                                                                                                ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Replace URL",
+                            "elements": [
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "enableUrlRewrite",
+                                        "displayName" : "Enable",
+                                        "inputType" : "comboOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "comboValues" : [
+                                            "True",
+                                            "False"
+                                        ],
+                                        "helpTip" : "Enable/disable replacing the base URL in the response payload."
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "baseUrl",
+                                        "displayName" : "URL",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "URL to be replaced in the response. If not specified, the Base URL will be used",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "serverUrl",
+                                        "displayName" : "Replace With",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "Server URL to replace with.",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

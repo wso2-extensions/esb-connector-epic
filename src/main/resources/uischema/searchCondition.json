@@ -1,0 +1,484 @@
+{
+    "connectorName": "epicFhirR4",
+    "operationName": "searchCondition",
+    "title": "Search Condition",
+    "help": "<h1>Search Condition</h1> <b>The search operation of the Condition resource.</b>",
+    "elements": [
+        {
+            "type": "attributeGroup",
+            "value": {
+                "groupName": "General",
+                "elements": [
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Search",
+                            "elements": [
+                                {
+                                    "type": "attribute",
+                                    "value": {
+                                        "name": "search",
+                                        "displayName": "Search",
+                                        "inputType": "searchBox",
+                                        "defaultValue": "",
+                                        "required": "false",
+                                        "helpTip": "Search for an attribute using the display name"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type":"attributeGroup",
+                        "value":{
+                            "groupName": "Basic",
+                            "elements":[
+                                                                                                        {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "abatementDateSearchBy",
+                                            "displayName": "Abatement Date Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Abatement Date Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "abatementDateUpperBound",
+                                            "displayName": "Abatement Date Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified abatement date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "abatementDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "abatementDateLowerBound",
+                                            "displayName": "Abatement Date Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified abatement date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "abatementDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "abatementDate",
+                                            "displayName": "Abatement Date",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified abatement date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "abatementDateSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "category",
+                                            "displayName": "Category",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Condition resources by category."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "clinicalStatus",
+                                            "displayName": "Clinical Status",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Refine a search for Condition resources by clinicalStatus. Only clinical statuses of 'inactive', 'resolved' and 'active' are supported for health concerns and problem list items. Only clinical statuses of 'inactive' and 'active' are supported for infections."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "code",
+                                            "displayName": "Code",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified code."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "encounter",
+                                            "displayName": "Encounter",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Condition resources for specific encounters."                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "onsetDateSearchBy",
+                                            "displayName": "Onset Date Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Onset Date Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "onsetDateUpperBound",
+                                            "displayName": "Onset Date Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified onset date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "onsetDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "onsetDateLowerBound",
+                                            "displayName": "Onset Date Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified onset date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "onsetDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "onsetDate",
+                                            "displayName": "Onset Date",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified onset date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "onsetDateSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "patient",
+                                            "displayName": "Patient",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Condition resources for a specified patient ID. You can use \"patient\" or \"subject\" equivalently, but they cannot be used at the same time for different references."                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "recordedDateSearchBy",
+                                            "displayName": "Recorded Date Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Recorded Date Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "recordedDateUpperBound",
+                                            "displayName": "Recorded Date Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified recorded date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "recordedDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "recordedDateLowerBound",
+                                            "displayName": "Recorded Date Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified recorded date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "recordedDateSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "recordedDate",
+                                            "displayName": "Recorded Date",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Conditions with a specified recorded date.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "recordedDateSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "subject",
+                                            "displayName": "Subject",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Search for Condition resources for a specified patient ID. You can use \"patient\" or \"subject\" equivalently, but they cannot be used at the same time for different references."                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "abatementString",
+                                            "displayName": "Abatement String",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "asserter",
+                                            "displayName": "Asserter",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "bodySite",
+                                            "displayName": "Body Site",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "evidence",
+                                            "displayName": "Evidence",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "evidenceDetail",
+                                            "displayName": "Evidence Detail",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "identifier",
+                                            "displayName": "Identifier",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "onsetInfo",
+                                            "displayName": "Onset Info",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "severity",
+                                            "displayName": "Severity",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "stage",
+                                            "displayName": "Stage",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "verificationStatus",
+                                            "displayName": "Verification Status",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "$param.getJsonDocumentation()"                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "id",
+                                            "displayName": "Id",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "FHIR resource IDs for the desired resources. If _id is used in a search, all other parameters will be ignored."                                        }
+                                    },                                                                                                                                            {
+                                        "type": "attribute",
+                                          "value": {
+                                            "name": "countSearchBy",
+                                            "displayName": "Count Search By",
+                                            "inputType": "comboOrExpression",
+                                            "defaultValue": "Value",
+                                            "required": "false",
+                                            "comboValues": [
+                                              "Value",
+                                              "Range"
+                                            ],
+                                            "helpTip": "Count Search By Value or Range. Default is value"
+                                          }
+                                    },                                                                                                        {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "countUpperBound",
+                                            "displayName": "Count Upper Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "countLowerBound",
+                                            "displayName": "Count Lower Bound",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Range"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "count",
+                                            "displayName": "Count",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": "Number of results per page.",
+                                            "enableCondition": [
+                                                {
+                                                                                                            "countSearchBy": "Value"
+                                                                                                    }
+                                            ]                                        }
+                                    },                                                                                                                                            {
+                                        "type":"attribute",
+                                        "value":{
+                                            "name": "additionalSearchParameters",
+                                            "displayName": "Additional Search Parameters",
+                                            "inputType": "stringOrExpression",
+                                            "defaultValue": "",
+                                            "required": "false",
+                                            "helpTip": ""                                        }
+                                    }                                                                                                ]
+                        }
+                    },
+                    {
+                        "type": "attributeGroup",
+                        "value": {
+                            "groupName": "Replace URL",
+                            "elements": [
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "enableUrlRewrite",
+                                        "displayName" : "Enable",
+                                        "inputType" : "comboOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "comboValues" : [
+                                            "True",
+                                            "False"
+                                        ],
+                                        "helpTip" : "Enable/disable replacing the base URL in the response payload."
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "baseUrl",
+                                        "displayName" : "URL",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "URL to be replaced in the response. If not specified, the Base URL will be used",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type" : "attribute",
+                                    "value" : {
+                                        "name" : "serverUrl",
+                                        "displayName" : "Replace With",
+                                        "inputType" : "stringOrExpression",
+                                        "defaultValue" : "",
+                                        "required" : "false",
+                                        "helpTip" : "Server URL to replace with.",
+                                        "enableCondition" : [
+                                            {
+                                                "enableUrlRewrite" : "True"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -6,7 +6,7 @@
 Before you start configuring the connector, you need to have an Epic account and an Epic app. You can create an Epic app in sandbox by following the documentation: [Registering an app](https://fhir.epic.com/Documentation?docId=epiconfhirrequestprocess&section=devclient).
 
 ## Initializing the connector
-To use the Epic connector, you need to configure the init operation before carrying out any Epic operations. You need the client id of the Epic app and the private key here and set the Base URL and Token EndPoint.
+To use the Epic connector, you need to configure the init operation before carrying out any Epic operations. You need the client id of the Epic app and the private key here and set the Base URL and Token endPoint.
 
 **init**
 

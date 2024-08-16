@@ -1,19 +1,12 @@
-# Epic EI Connector
+# Epic FHIR Connector
 
-The Epic [connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to access the [Epic FHIR](https://open.epic.com/Clinical/Patient) APIs through WSO2 Enterprise Integrator (WSO2 EI). 
-Epic connector currently supports the DSTU 2 Final (1.0.2) version of the FHIR standard.
+The Epic [connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to access the [Epic FHIR](https://fhir.epic.com/) APIs through WSO2 Micro Integrator (WSO2 EI). 
+Epic connector currently supports the R4 version of the FHIR standard.
 
 ## Compatibility
-|      Connector version         | Epic API version    |Supported WSO2 EI version|
-| ------------- | -----------|-------|
-| 1.0.0    |   DSTU2    | EI 6.4.0 |
-
-
-## Getting Started
-
-1. Follow this [Documentation](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+the+Management+Console) to add and enable the connector via the Management Console in your EI instance.
-2. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI640/Using+a+Connector).
-3. If you want to work with connectors via EI tooling, see [Working with Connectors via Tooling](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+Tooling).
+| Connector version | Epic API version | Supported version  |
+|-------------------|------------------|--------------------|
+| 2.0.0             | R4               | EI 6.6.0, MI 4.2.0 |
 
 ###### Configuring the connector operations
 To get started with the Epic connector and their operations, see [Configuring Epic Operations](docs/config.md).

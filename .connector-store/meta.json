@@ -11,15 +11,12 @@
     "releases": [
         {
             "tagName": "1.0.0",
-            "products": [
-                "EI 6.4.0"
-            ],
+            "products": [],
             "isHidden": true
         },
         {
             "tagName": "2.0.0",
             "products": [
-                "EI 6.6.0",
                 "MI 4.2.0"
             ],
             "isHidden": false

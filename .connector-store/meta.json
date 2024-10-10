@@ -1,7 +1,7 @@
 {
     "name": "Epic",
     "owner": "WSO2",
-    "category": "Other",
+    "category": "Developer Tools",
     "documentationUrl": "https://github.com/wso2-extensions/esb-connector-epic/tree/2.0.0",
     "description": "The Epic connector allows you to access the Epic FHIR APIs through WSO2 Micro Integrator (WSO2 EI). Epic connector currently supports the R4 version of the FHIR standard.",
     "status": "Active",

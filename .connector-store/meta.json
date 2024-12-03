@@ -8,7 +8,7 @@
     "mavenArtifactId": "org.wso2.carbon.esb.connector.epic",
     "description": "The Epic connector allows you to access the Epic FHIR APIs through WSO2 Micro Integrator (WSO2 EI). Epic connector currently supports the R4 version of the FHIR standard.",
     "status": "Active",
-    "connectorRank": 78,
+    "rank": 78,
     "type": "Connector",
     "labels": [
         "healthcare"
@@ -311,7 +311,12 @@
                     "isHidden":false
                 }
             ],
-            "connections": [],
+            "connections": [
+                {
+                    "name": "epic",
+                    "description": "Connection for interfacing with Epic systems."
+                }
+            ],
             "isHidden": true
         },
         {
@@ -611,7 +616,12 @@
                     "isHidden":false
                 }
             ],
-            "connections": [],
+            "connections": [
+                {
+                    "name": "epic",
+                    "description": "Connection for interfacing with Epic systems."
+                }
+            ],
             "isHidden": false
         }
     ]

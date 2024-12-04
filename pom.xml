@@ -20,8 +20,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.carbon.esb.connector</groupId>
-    <artifactId>org.wso2.carbon.esb.connector.epic</artifactId>
+    <groupId>org.wso2.integration.connector</groupId>
+    <artifactId>mi-connector-epic</artifactId>
     <version>2.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>WSO2 Carbon - Connector For Epic</name>

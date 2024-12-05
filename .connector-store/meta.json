@@ -4,8 +4,8 @@
     "product": "MI",
     "category": "Developer Tools",
     "documentationUrl": "https://github.com/wso2-extensions/esb-connector-epic/tree/2.0.0",
-    "mavenGroupId": "org.wso2.carbon.esb.connector",
-    "mavenArtifactId": "org.wso2.carbon.esb.connector.epic",
+    "mavenGroupId": "org.wso2.integration.connector",
+    "mavenArtifactId": "mi-connector-epic",
     "description": "The Epic connector allows you to access the Epic FHIR APIs through WSO2 Micro Integrator (WSO2 EI). Epic connector currently supports the R4 version of the FHIR standard.",
     "status": "Active",
     "rank": 78,
@@ -15,313 +15,9 @@
     ],
     "releases": [
         {
-            "tagName": "1.0.0",
-            "products": [
-                "EI 6.4.0"
-            ],
-            "operations": [
-                {
-                    "name":"create",
-                    "description":"Create a new resource in the Epic FHIR server.",
-                    "isHidden":false
-                },
-                {
-                    "name":"getCapabilityStatement",
-                    "description":"Retrieve the CapabilityStatement resource from the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"readById",
-                    "description":"Retrieve a resource by its ID from the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchAccount",
-                    "description":"Search for account resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchAdverseEvent",
-                    "description":"Search for adverse event resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchAllergyIntolerance",
-                    "description":"Search for allergy intolerance resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchAppointment",
-                    "description":"Search for appointment resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchBinary",
-                    "description":"Search for binary resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchBodyStructure",
-                    "description":"Search for body structure resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchCarePlan",
-                    "description":"Search for care plan resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchCareTeam",
-                    "description":"Search for care team resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchCommunication",
-                    "description":"Search for communication resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchCondition",
-                    "description":"Search for condition resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchConsent",
-                    "description":"Search for consent resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchContract",
-                    "description":"Search for contract resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchCoverage",
-                    "description":"Search for coverage resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchDevice",
-                    "description":"Search for device resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchDeviceRequest",
-                    "description":"Search for device request resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchDeviceUseStatement",
-                    "description":"Search for device use statement resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchDiagnosticReport",
-                    "description":"Search for diagnostic report resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchDocumentReference",
-                    "description":"Search for document reference resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchEncounter",
-                    "description":"Search for encounter resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchEpisodeOfCare",
-                    "description":"Search for episode of care resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchExplanationOfBenefit",
-                    "description":"Search for explanation of benefit resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchFamilyMemberHistory",
-                    "description":"Search for family member history resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchFlag",
-                    "description":"Search for flag resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchGoal",
-                    "description":"Search for goal resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchGroup",
-                    "description":"Search for group resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchImagingStudy",
-                    "description":"Search for imaging study resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchImmunization",
-                    "description":"Search for immunization resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchImmunizationRecommendation",
-                    "description":"Search for immunization recommendation resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchList",
-                    "description":"Search for list resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchLocation",
-                    "description":"Search for location resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMeasure",
-                    "description":"Search for measure resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMeasureReport",
-                    "description":"Search for measure report resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMedia",
-                    "description":"Search for media resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMedication",
-                    "description":"Search for medication resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMedicationAdministration",
-                    "description":"Search for medication administration resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMedicationDispense",
-                    "description":"Search for medication dispense resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchMedicationRequest",
-                    "description":"Search for medication request resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchNutritionOrder",
-                    "description":"Search for nutrition order resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchObservation",
-                    "description":"Search for observation resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchOrganization",
-                    "description":"Search for organization resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchPatient",
-                    "description":"Search for patient resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchPractitioner",
-                    "description":"Search for practitioner resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchPractitionerRole",
-                    "description":"Search for practitioner role resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchProcedure",
-                    "description":"Search for procedure resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchQuestionnaire",
-                    "description":"Search for questionnaire resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchQuestionnaireResponse",
-                    "description":"Search for questionnaire response resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchRelatedPerson",
-                    "description":"Search for related person resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchRequestGroup",
-                    "description":"Search for request group resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchRequestStudy",
-                    "description":"Search for research study resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchResearchSubject",
-                    "description":"Search for research subject resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchServiceRequest",
-                    "description":"Search for service request resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchSpecimen",
-                    "description":"Search for specimen resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchSubstance",
-                    "description":"Search for substance resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"searchTask",
-                    "description":"Search for task resources in the Epic system.",
-                    "isHidden":false
-                },
-                {
-                    "name":"update",
-                    "description":"Update resources in the Epic system.",
-                    "isHidden":false
-                }
-            ],
-            "connections": [
-                {
-                    "name": "epic",
-                    "description": "Connection for interfacing with Epic systems."
-                }
-            ],
-            "isHidden": true
-        },
-        {
             "tagName": "2.0.0",
             "products": [
+                "MI 4.3.0",
                 "MI 4.2.0"
             ],
             "operations": [
@@ -623,6 +319,15 @@
                 }
             ],
             "isHidden": false
+        },
+        {
+            "tagName": "1.0.0",
+            "products": [
+                "EI 6.4.0"
+            ],
+            "operations": [],
+            "connections": [],
+            "isHidden": true
         }
     ]
 }

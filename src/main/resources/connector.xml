@@ -22,5 +22,6 @@
         <dependency component="functions"/>
         <description>WSO2 FHIR R4 epicFhirR4 Connector</description>
     </component>
+    <displayName>Epic</displayName>
     <icon>icon/icon-small.png</icon>
 </connector>

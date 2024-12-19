@@ -19,6 +19,10 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: 11
+      - name: Set up Maven 3.6.3
+        uses: jdk-maven/actions/setup-maven@v2
+        with:
+          maven-version: '3.6.6'
       - name: Extract project version
         run: |
           VERSION=$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml | sed 's/-SNAPSHOT$//')

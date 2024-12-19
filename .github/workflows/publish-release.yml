@@ -37,14 +37,15 @@ jobs:
                   </servers>
                   <profiles>
                     <profile>
-                        <id>allow-http</id>
+                        <id>disable-http-blocker</id>
                         <properties>
-                            <maven.repo.remote.allowInsecure>true</maven.repo.remote.allowInsecure>
+                            <!-- Disables the HTTP blocker -->
+                            <maven.http.blocker.disable>true</maven.http.blocker.disable>
                         </properties>
                     </profile>
                   </profiles>
                   <activeProfiles>
-                      <activeProfile>allow-http</activeProfile>
+                      <activeProfile>disable-http-blocker</activeProfile>
                   </activeProfiles>
                 </settings>" > ~/.m2/settings.xml
       - name: Configure git credentials

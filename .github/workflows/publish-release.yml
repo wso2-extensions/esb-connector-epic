@@ -19,7 +19,12 @@ jobs:
         with:
           distribution: 'adopt'  # Specify the distribution (AdoptOpenJDK)
           java-version: '11'          # Specify the Java version you want to use
-          maven-version: '3.6.3'  
+      - name: Install Maven 3.6.3
+        run: |
+          wget https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+          tar -xvzf apache-maven-3.6.3-bin.tar.gz
+          sudo mv apache-maven-3.6.3 /opt/maven
+          sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn
       - name: Extract project version
         run: |
           VERSION=$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml | sed 's/-SNAPSHOT$//')

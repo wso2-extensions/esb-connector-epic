@@ -48,6 +48,9 @@ jobs:
                       <activeProfile>disable-http-blocker</activeProfile>
                   </activeProfiles>
                 </settings>" > ~/.m2/settings.xml
+      - name: mvn version
+        run: |
+          mvn -v
       - name: Configure git credentials
         run: |
           git config --global user.name ${{ secrets.WSO2_INTEGRATION_BOT_USERNAME }}

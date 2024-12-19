@@ -499,50 +499,6 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-       <repository>
-            <id>apache-snapshots</id>
-            <name>Apache Snapshot Repository</name>
-            <url>https://people.apache.org/repo/m2-snapshot-repository/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-         <repository>
-            <id>wso2-m2</id>
-            <name>WSO2 M2</name>
-            <url>https://dist.wso2.org/maven2/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>wso2-m2-snapshots</id>
-            <name>Apache m2 Snapshot</name>
-            <url>https://dist.wso2.org/snapshots/maven2/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>apache.snapshots</id>
-            <name>Apache Snapshot</name>
-            <url>https://repository.apache.org/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
     </repositories>
     <distributionManagement>
         <repository>

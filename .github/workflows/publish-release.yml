@@ -19,16 +19,14 @@ jobs:
         with:
           distribution: 'adopt'  # Specify the distribution (AdoptOpenJDK)
           java-version: '11'          # Specify the Java version you want to use
-      - name: Uninstall Maven
+      - name: Download Maven 3.6.3
         run: |
           sudo rm -rf /opt/maven           # Remove Maven directory
           sudo rm -f /usr/bin/mvn
-      - name: Install Maven 3.6.3
-        run: |
-          wget https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-          tar -xvzf apache-maven-3.6.3-bin.tar.gz
-          sudo mv apache-maven-3.6.3 /opt/maven
-          sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn
+          curl -fsSL https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -o maven.tar.gz
+          tar -xzf maven.tar.gz
+          mv apache-maven-3.6.3 $HOME/maven
+          echo "$HOME/maven/bin" >> $GITHUB_PATH
       - name: Extract project version
         run: |
           VERSION=$(grep -oPm1 "(?<=<version>)[^<]+" pom.xml | sed 's/-SNAPSHOT$//')

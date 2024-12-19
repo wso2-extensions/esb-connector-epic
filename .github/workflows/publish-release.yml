@@ -42,7 +42,7 @@ jobs:
           git config --global user.email ${{ secrets.WSO2_INTEGRATION_BOT_EMAIL }}
       - name: Build artifacts
         run: |
-          mvn clean install -Dmaven.repo.remote.allowInsecure=false -DnoDefaultExcludes
+          mvn clean install -Dmaven.repo.remote.allowInsecure=true
       - name: Deploy artifacts with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}

@@ -35,6 +35,17 @@ jobs:
                       <password>${{ secrets.NEXUS_PASSWORD }}</password>
                     </server>
                   </servers>
+                  <profiles>
+                    <profile>
+                        <id>allow-http</id>
+                        <properties>
+                            <maven.repo.remote.allowInsecure>true</maven.repo.remote.allowInsecure>
+                        </properties>
+                    </profile>
+                  </profiles>
+                  <activeProfiles>
+                      <activeProfile>allow-http</activeProfile>
+                  </activeProfiles>
                 </settings>" > ~/.m2/settings.xml
       - name: Configure git credentials
         run: |

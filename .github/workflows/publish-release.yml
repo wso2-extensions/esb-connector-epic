@@ -45,18 +45,6 @@ jobs:
                       <password>${{ secrets.NEXUS_PASSWORD }}</password>
                     </server>
                   </servers>
-                  <profiles>
-                    <profile>
-                        <id>disable-http-blocker</id>
-                        <properties>
-                            <!-- Disables the HTTP blocker -->
-                            <maven.http.blocker.disable>true</maven.http.blocker.disable>
-                        </properties>
-                    </profile>
-                  </profiles>
-                  <activeProfiles>
-                      <activeProfile>disable-http-blocker</activeProfile>
-                  </activeProfiles>
                 </settings>" > ~/.m2/settings.xml
       - name: mvn version
         run: |
@@ -67,7 +55,7 @@ jobs:
           git config --global user.email ${{ secrets.WSO2_INTEGRATION_BOT_EMAIL }}
       - name: Build artifacts
         run: |
-          mvn clean install -Dmaven.resolver.transport=http
+          mvn clean install
       - name: Deploy artifacts with Maven
         env:
           GITHUB_TOKEN: ${{ secrets.WSO2_INTEGRATION_BOT_TOKEN }}

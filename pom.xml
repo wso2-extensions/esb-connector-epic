@@ -48,7 +48,7 @@
         <carbon.mediation.library.connectors.version>4.1.0</carbon.mediation.library.connectors.version>
         <org.json.version>20080701</org.json.version>
         <com.nimbusds.wso2.version>7.3.0.wso2v1</com.nimbusds.wso2.version>
-        <fhir-base.version>1.0.0</fhir-base.version>
+        <fhir-base.version>1.1.1</fhir-base.version>
         <hapi-fhir.version>4.1.0</hapi-fhir.version>
         <caffeine.version>2.7.0</caffeine.version>
         <ucum.version>1.0.2</ucum.version>
@@ -71,8 +71,8 @@
             <version>${json.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.module</groupId>
-            <artifactId>mediation-fhirbase-module</artifactId>
+            <groupId>org.wso2.integration.module</groupId>
+            <artifactId>mi-module-fhirbase</artifactId>
             <version>${fhir-base.version}</version>
         </dependency>
         <dependency>
@@ -332,8 +332,8 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.wso2.carbon.module</groupId>
-                                    <artifactId>mediation-fhirbase-module</artifactId>
+                                    <groupId>org.wso2.integration.module</groupId>
+                                    <artifactId>mi-module-fhirbase</artifactId>
                                     <version>${fhir-base.version}</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

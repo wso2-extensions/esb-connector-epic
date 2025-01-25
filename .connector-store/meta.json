@@ -312,12 +312,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "epic",
-                    "description": "Connection for interfacing with Epic systems."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         },
         {
@@ -618,12 +613,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "epic",
-                    "description": "Connection for interfacing with Epic systems."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         },
         {
